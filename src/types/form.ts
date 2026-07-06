@@ -11,12 +11,15 @@ export type FormAnswers = {
   leadTime: string;
   budget: string;
   notes: string;
-  file: File | null;
+  files: File[];
   firstName: string;
   lastName: string;
   email: string;
   phone: string;
   termsAccepted: boolean;
+  uploadAuthorised: boolean;
+  supplierSharingAcknowledged: boolean;
+  substitutionApprovalAcknowledged: boolean;
 };
 
 export const INITIAL_ANSWERS: FormAnswers = {
@@ -32,12 +35,15 @@ export const INITIAL_ANSWERS: FormAnswers = {
   leadTime: "",
   budget: "",
   notes: "",
-  file: null,
+  files: [],
   firstName: "",
   lastName: "",
   email: "",
   phone: "",
   termsAccepted: false,
+  uploadAuthorised: false,
+  supplierSharingAcknowledged: false,
+  substitutionApprovalAcknowledged: false,
 };
 
 export type SubmitStatus = "idle" | "submitting" | "success" | "error";

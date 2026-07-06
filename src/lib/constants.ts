@@ -1,11 +1,17 @@
 export const NAV_LINKS: { label: string; href: string }[] = [
-  { label: "How it works", href: "#how-it-works" },
-  { label: "What we manage", href: "#what-we-manage" },
-  { label: "Who it's for", href: "#who-its-for" },
-  { label: "FAQ", href: "#faq" },
+  { label: "How it works", href: "/#how-it-works" },
+  { label: "What we manage", href: "/#what-we-manage" },
+  { label: "Who it's for", href: "/#who-its-for" },
+  { label: "FAQ", href: "/#faq" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const TURNAROUND_CLAIM = "24–48 hours";
+
+export const CONTACT_PHONE_DISPLAY = "1300 SPECSWAP";
+// tel: href — letters are fine, phone dialers translate them via the keypad
+export const CONTACT_PHONE_TEL = "1300SPECSWAP";
+export const CONTACT_EMAIL = "hello@specswap.com.au";
 
 export const TAGLINE_STEPS = ["We review", "We compare", "You save"];
 

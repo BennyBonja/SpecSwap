@@ -28,7 +28,7 @@ function hasAnyAnswer(answers: Record<string, unknown>): boolean {
   return Object.values(answers).some((value) => {
     if (typeof value === "string") return value.trim().length > 0;
     if (typeof value === "boolean") return value;
-    if (value instanceof File) return true;
+    if (Array.isArray(value)) return value.length > 0;
     return false;
   });
 }
@@ -44,9 +44,11 @@ function getFocusable(container: HTMLElement): HTMLElement[] {
 export function UploadFormModal({
   onSubmit,
   isSubmitting,
+  busyLabel,
 }: {
   onSubmit: () => void;
   isSubmitting: boolean;
+  busyLabel?: string;
 }) {
   const { state, close, reset } = useUploadForm();
   const dialogRef = useRef<HTMLDivElement>(null);
@@ -144,6 +146,7 @@ export function UploadFormModal({
             onSubmit={onSubmit}
             isSubmitting={isSubmitting}
             submitLabel="Submit"
+            busyLabel={busyLabel}
           >
             <StepComponent />
           </StepShell>

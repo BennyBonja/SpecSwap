@@ -2,17 +2,6 @@ import { NextResponse } from "next/server";
 
 export const runtime = "nodejs";
 
-// Attachments now arrive as links into our own Vercel Blob store (uploaded
-// directly from the browser) rather than raw bytes. Anything not pointing
-// at that store is rejected, otherwise a forged request could inject
-// arbitrary links into the enquiry email sent to the team.
-const BLOB_URL_PATTERN = /^https:\/\/[a-z0-9]+\.public\.blob\.vercel-storage\.com\//;
-
-function attachmentsAreValid(attachments: string): boolean {
-  const urls = attachments.match(/https?:\/\/\S+/g) ?? [];
-  return urls.every((url) => BLOB_URL_PATTERN.test(url));
-}
-
 export async function POST(request: Request) {
   const accessKey = process.env.WEB3FORMS_KEY;
   if (!accessKey) {
@@ -30,17 +19,9 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: true });
   }
 
-  const attachments = incomingFormData.get("attachments");
-  if (typeof attachments === "string" && attachments.trim() && !attachmentsAreValid(attachments)) {
-    return NextResponse.json(
-      { success: false, message: "One or more attachment links were invalid." },
-      { status: 400 },
-    );
-  }
-
   const outgoing = new FormData();
   outgoing.set("access_key", accessKey);
-  outgoing.set("subject", "New SpecSwap FF&E review request");
+  outgoing.set("subject", "New SpecSwap general enquiry");
   outgoing.set("from_name", "SpecSwap website");
 
   for (const [key, value] of incomingFormData.entries()) {

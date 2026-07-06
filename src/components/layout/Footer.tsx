@@ -1,6 +1,11 @@
 import { Phone, Mail } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { NAV_LINKS } from "@/lib/constants";
+import {
+  NAV_LINKS,
+  CONTACT_PHONE_DISPLAY,
+  CONTACT_PHONE_TEL,
+  CONTACT_EMAIL,
+} from "@/lib/constants";
 
 export function Footer() {
   return (
@@ -17,18 +22,18 @@ export function Footer() {
           </p>
           <div className="mt-4 flex flex-col gap-2 text-sm">
             <a
-              href="tel:1300SPECSWAP"
+              href={`tel:${CONTACT_PHONE_TEL}`}
               className="flex items-center gap-2 hover:text-white"
             >
               <Phone className="h-4 w-4 text-coral-400" aria-hidden="true" />
-              1300 SPECSWAP
+              {CONTACT_PHONE_DISPLAY}
             </a>
             <a
-              href="mailto:hello@specswap.com.au"
+              href={`mailto:${CONTACT_EMAIL}`}
               className="flex items-center gap-2 hover:text-white"
             >
               <Mail className="h-4 w-4 text-coral-400" aria-hidden="true" />
-              hello@specswap.com.au
+              {CONTACT_EMAIL}
             </a>
           </div>
         </div>

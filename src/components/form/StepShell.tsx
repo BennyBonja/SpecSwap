@@ -9,11 +9,13 @@ export function StepShell({
   onSubmit,
   submitLabel = "Submit",
   isSubmitting = false,
+  busyLabel = "Submitting…",
 }: {
   children: ReactNode;
   onSubmit?: () => void;
   submitLabel?: string;
   isSubmitting?: boolean;
+  busyLabel?: string;
 }) {
   const { state, next, prev, validateCurrentStep } = useUploadForm();
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -91,7 +93,7 @@ export function StepShell({
           disabled={isSubmitting}
           className="rounded-lg bg-coral-500 px-5 py-3 text-sm font-medium text-white hover:bg-coral-600 disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {isLastStep ? (isSubmitting ? "Submitting…" : submitLabel) : "Continue"}
+          {isLastStep ? (isSubmitting ? busyLabel : submitLabel) : "Continue"}
         </button>
       </div>
     </div>

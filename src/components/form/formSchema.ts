@@ -1,8 +1,41 @@
 import { z } from "zod";
 import type { FormAnswers } from "@/types/form";
 
-const ACCEPTED_FILE_TYPES = ["image/png", "image/jpeg", "application/pdf"];
-const MAX_FILE_SIZE_BYTES = 20 * 1024 * 1024;
+const ACCEPTED_FILE_EXTENSIONS = [
+  ".pdf",
+  ".doc",
+  ".docx",
+  ".rtf",
+  ".txt",
+  ".xlsx",
+  ".xls",
+  ".csv",
+  ".ppt",
+  ".pptx",
+  ".jpg",
+  ".jpeg",
+  ".png",
+  ".webp",
+  ".heic",
+  ".heif",
+  ".tif",
+  ".tiff",
+  ".dwg",
+  ".dxf",
+  ".rvt",
+  ".skp",
+  ".ifc",
+  ".zip",
+  ".7z",
+];
+const MAX_FILE_SIZE_BYTES = 200 * 1024 * 1024;
+const MAX_TOTAL_SIZE_BYTES = 500 * 1024 * 1024;
+const MAX_FILE_COUNT = 20;
+
+function getExtension(fileName: string): string {
+  const dotIndex = fileName.lastIndexOf(".");
+  return dotIndex === -1 ? "" : fileName.slice(dotIndex).toLowerCase();
+}
 
 export type ValidationResult = {
   success: boolean;
@@ -68,14 +101,26 @@ const step5Schema = z.object({
 });
 
 const step6Schema = z.object({
-  file: z
-    .instanceof(File, { message: "Upload a file to continue" })
-    .refine((file) => ACCEPTED_FILE_TYPES.includes(file.type), {
-      message: "Accepted formats are PNG, JPEG or PDF",
+  files: z
+    .array(z.instanceof(File))
+    .min(1, "Upload at least one file to continue")
+    .max(MAX_FILE_COUNT, `You can upload up to ${MAX_FILE_COUNT} files`)
+    .refine(
+      (files) =>
+        files.every((file) =>
+          ACCEPTED_FILE_EXTENSIONS.includes(getExtension(file.name)),
+        ),
+      { message: "One or more files are an unsupported format" },
+    )
+    .refine((files) => files.every((file) => file.size <= MAX_FILE_SIZE_BYTES), {
+      message: "Each file must be under 200MB",
     })
-    .refine((file) => file.size <= MAX_FILE_SIZE_BYTES, {
-      message: "File must be under 20MB",
-    }),
+    .refine(
+      (files) =>
+        files.reduce((total, file) => total + file.size, 0) <=
+        MAX_TOTAL_SIZE_BYTES,
+      { message: "Total upload size must be under 500MB" },
+    ),
 });
 
 const step7Schema = z.object({
@@ -85,6 +130,15 @@ const step7Schema = z.object({
   phone: z.string().trim().min(1, "Enter your phone number"),
   termsAccepted: z.literal(true, {
     error: "You must agree to the terms and conditions",
+  }),
+  uploadAuthorised: z.literal(true, {
+    error: "Please confirm you're authorised to share these documents",
+  }),
+  supplierSharingAcknowledged: z.literal(true, {
+    error: "Please acknowledge how we share project information",
+  }),
+  substitutionApprovalAcknowledged: z.literal(true, {
+    error: "Please acknowledge that substitutions need stakeholder approval",
   }),
 });
 
@@ -99,4 +153,10 @@ export const stepSchemas: ((answers: FormAnswers) => ValidationResult)[] = [
   (answers) => toValidationResult(step7Schema.safeParse(answers)),
 ];
 
-export { ACCEPTED_FILE_TYPES, MAX_FILE_SIZE_BYTES };
+export {
+  ACCEPTED_FILE_EXTENSIONS,
+  MAX_FILE_SIZE_BYTES,
+  MAX_TOTAL_SIZE_BYTES,
+  MAX_FILE_COUNT,
+  getExtension,
+};
