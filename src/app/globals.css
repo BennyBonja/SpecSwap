@@ -1,0 +1,101 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+
+@theme {
+  --font-sans: var(--font-work-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-lexend), ui-sans-serif, system-ui, sans-serif;
+
+  --color-navy-50: #eef3f8;
+  --color-navy-100: #d6e3ee;
+  --color-navy-200: #aec7dd;
+  --color-navy-300: #7fa5c4;
+  --color-navy-400: #4c7fa5;
+  --color-navy-500: #2a5d82;
+  --color-navy-600: #0c2e4e;
+  --color-navy-700: #0a2640;
+  --color-navy-800: #081d31;
+  --color-navy-900: #051220;
+
+  --color-coral-50: #fff1e8;
+  --color-coral-100: #ffdec7;
+  --color-coral-200: #ffbb8c;
+  --color-coral-300: #fb9552;
+  --color-coral-400: #f3752a;
+  --color-coral-500: #e35f12;
+  --color-coral-600: #c14c0a;
+  --color-coral-700: #9a3b08;
+  --color-coral-800: #742c08;
+  --color-coral-900: #4a1b05;
+}
+
+body {
+  color: var(--color-navy-900);
+  background: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-bounce {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.bg-blueprint-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+@keyframes float-tag {
+  0%, 100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(-3deg);
+  }
+}
+
+@keyframes slow-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes wiggle-pulse {
+  0%, 100% {
+    transform: rotate(-3deg) scale(1);
+  }
+  50% {
+    transform: rotate(-3deg) scale(1.08);
+  }
+}
+
+.animate-float-tag {
+  animation: float-tag 3s ease-in-out infinite;
+}
+
+.animate-slow-spin {
+  animation: slow-spin 6s linear infinite;
+}
+
+.animate-wiggle-pulse {
+  animation: wiggle-pulse 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-tag,
+  .animate-slow-spin,
+  .animate-wiggle-pulse {
+    animation: none;
+  }
+}
