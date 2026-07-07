@@ -74,6 +74,11 @@ export function Hero() {
               <BadgeCheck className="h-4 w-4 text-coral-400" aria-hidden="true" />
               No cost or obligation to get your comparison quote.
             </p>
+            <p className="mt-2 flex items-center gap-2 text-sm text-navy-300">
+              <BadgeCheck className="h-4 w-4 text-coral-400" aria-hidden="true" />
+              Keeping your original spec? We&apos;ll still source it at the
+              best price — swapping is optional.
+            </p>
             <dl className="mt-12 divide-y divide-white/10 border-t border-white/10">
               {HERO_STATS.map((stat) => (
                 <div
