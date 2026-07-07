@@ -27,7 +27,7 @@ export default function TermsAndConditionsPage() {
           </div>
           <div className="flex gap-2">
             <dt className="font-medium text-navy-900">Business name:</dt>
-            <dd>SpecSwap</dd>
+            <dd>SpecSwap, a service of Bonja Group (ABN 64 814 797 294)</dd>
           </div>
           <div className="flex gap-2">
             <dt className="font-medium text-navy-900">Website:</dt>
@@ -97,8 +97,9 @@ export default function TermsAndConditionsPage() {
                 &ldquo;SpecSwap&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo; and
                 &ldquo;our&rdquo;
               </strong>{" "}
-              means SpecSwap and any related business entity that operates
-              the SpecSwap service.
+              means Bonja Group (ABN 64 814 797 294), trading as SpecSwap,
+              and any related business entity that operates the SpecSwap
+              service.
             </p>
             <p>
               <strong className="text-navy-900">

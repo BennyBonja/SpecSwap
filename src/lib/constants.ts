@@ -8,12 +8,79 @@ export const NAV_LINKS: { label: string; href: string }[] = [
 
 export const TURNAROUND_CLAIM = "24–48 hours";
 
-export const CONTACT_PHONE_DISPLAY = "1300 SPECSWAP";
-// tel: href — letters are fine, phone dialers translate them via the keypad
-export const CONTACT_PHONE_TEL = "1300SPECSWAP";
+export const CONTACT_PHONE_DISPLAY = "0493 869 040";
+export const CONTACT_PHONE_TEL = "0493869040";
 export const CONTACT_EMAIL = "hello@specswap.com.au";
 
-export const TAGLINE_STEPS = ["We review", "We compare", "You save"];
+export const TAGLINE_STEPS: { label: string; description: string }[] = [
+  { label: "We review", description: "Every line of your schedule" },
+  { label: "We compare", description: "Specified, swapped and imported" },
+  { label: "You save", description: "18–42% typical, delivered to site" },
+];
+
+export const COMPARISON_EXAMPLES: {
+  item: string;
+  originalPrice: number;
+  swapPrice: number;
+  saving: number;
+  leadTime: string;
+}[] = [
+  {
+    item: "Task chair",
+    originalPrice: 620,
+    swapPrice: 410,
+    saving: 34,
+    leadTime: "3–4 weeks",
+  },
+  {
+    item: "Boardroom table",
+    originalPrice: 3899,
+    swapPrice: 1999,
+    saving: 49,
+    leadTime: "2–3 weeks",
+  },
+  {
+    item: "Monitor arm",
+    originalPrice: 220,
+    swapPrice: 145,
+    saving: 34,
+    leadTime: "1 week",
+  },
+];
+
+export const TEAM_CREDIBILITY_POINTS: {
+  title: string;
+  description: string;
+}[] = [
+  {
+    title: "Project coordination",
+    description: "Keeping schedules, suppliers and stakeholders in sync.",
+  },
+  {
+    title: "Supplier management",
+    description: "Chasing quotes, lead times and order confirmations.",
+  },
+  {
+    title: "Schedules & handover",
+    description: "Tracking FF&E line items through to handover documentation.",
+  },
+  {
+    title: "Construction admin",
+    description: "Comfortable with the process a live build actually runs on.",
+  },
+];
+
+export const QUOTE_INCLUDES_ITEMS: string[] = [
+  "The original specified item",
+  "Our proposed alternative",
+  "Visual and design match notes",
+  "Price comparison",
+  "Lead-time comparison",
+  "Supplier and source details",
+  "Warranty notes",
+  "Suitability notes",
+  "Risk and compliance notes",
+];
 
 export const HOW_IT_WORKS_STEPS: { title: string; description: string }[] = [
   {
@@ -299,7 +366,7 @@ export const FAQ_ITEMS: {
     category: "Uploading",
     question: "What can I upload?",
     answer:
-      "An FF&E schedule, a commercial furniture or lighting/appliance schedule, full fitout specifications, or even a rough home furniture list. PNG, JPEG and PDF are all fine.",
+      "An FF&E schedule, a commercial furniture or lighting/appliance schedule, full fitout specifications, or even a rough home furniture list. Documents, spreadsheets, drawings, CAD/BIM files, images and archives are all fine — up to 20 files per submission.",
   },
   {
     category: "Uploading",
@@ -316,7 +383,7 @@ export const FAQ_ITEMS: {
   {
     category: "Process",
     question: "How long until I get a quote?",
-    answer: `You'll get your comparison quote within ${TURNAROUND_CLAIM} of uploading your documents.`,
+    answer: `Most initial reviews are returned within ${TURNAROUND_CLAIM} of uploading your documents, depending on schedule size and complexity.`,
   },
   {
     category: "Process",
@@ -357,6 +424,6 @@ export const FAQ_ITEMS: {
     category: "Pricing",
     question: "Do you take a margin on the products themselves?",
     answer:
-      "Our value comes from consolidating suppliers and managing the process, not from marking up products — this is explained clearly in your quote so there are no surprises.",
+      "Our pricing is disclosed clearly in your quote. Depending on the engagement, SpecSwap may charge a procurement fee, management fee, supply margin, or a combination of these. We aim to make the commercial model clear before you proceed.",
   },
 ];

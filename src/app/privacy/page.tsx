@@ -30,8 +30,9 @@ export default function PrivacyPolicyPage() {
                 &ldquo;SpecSwap&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo; and
                 &ldquo;our&rdquo;
               </strong>{" "}
-              means SpecSwap and any related business entity that operates
-              the SpecSwap service.
+              means Bonja Group (ABN 64 814 797 294), trading as SpecSwap,
+              and any related business entity that operates the SpecSwap
+              service.
             </p>
             <p>
               <strong className="text-navy-900">
@@ -343,31 +344,28 @@ export default function PrivacyPolicyPage() {
               SpecSwap may use third-party software and service providers
               to operate the business.
             </p>
-            <p>These may include tools for:</p>
+            <p>These currently include:</p>
             <LegalList
               items={[
-                "website hosting",
-                "form collection",
-                "file uploads",
-                "cloud storage",
-                "email",
-                "CRM",
-                "spreadsheets and databases",
-                "automation",
-                "project management",
-                "quoting",
-                "accounting",
-                "analytics",
-                "communication",
-                "design and rendering",
-                "document preparation",
+                <>
+                  <strong className="text-navy-900">Vercel</strong> —
+                  website hosting
+                </>,
+                <>
+                  <strong className="text-navy-900">Vercel Blob</strong> —
+                  secure cloud storage for uploaded project documents
+                </>,
+                <>
+                  <strong className="text-navy-900">Web3Forms</strong> —
+                  form submission and email delivery for enquiries and
+                  uploads
+                </>,
               ]}
             />
             <p>
-              Examples may include platforms such as Framer, Heyflow,
-              Typeform, Tally, Formspark, Google Workspace, Microsoft 365,
-              Airtable, Dropbox, Make, Zapier, Xero, Gmail, Slack, Notion or
-              similar tools.
+              We may add or change providers over time, including for CRM,
+              accounting, analytics, communication or document preparation
+              purposes as the business grows.
             </p>
             <p>
               These providers may store or process information on our

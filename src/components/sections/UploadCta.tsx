@@ -33,6 +33,11 @@ export function UploadCta() {
           <BadgeCheck className="h-4 w-4 text-coral-400" aria-hidden="true" />
           No cost or obligation to get your comparison quote.
         </p>
+        <p className="mx-auto mt-3 max-w-lg text-xs text-navy-400">
+          Upload only documents you&apos;re authorised to share. We treat
+          project documents confidentially and only share relevant extracts
+          with suppliers where needed for pricing and lead-time checks.
+        </p>
       </Container>
     </section>
   );

@@ -45,8 +45,9 @@ export function ConfirmationScreen({ onRetry }: { onRetry: () => void }) {
         We&apos;ve received your documents
       </h2>
       <p className="mt-3 text-slate-600">
-        Our team is reviewing now — you&apos;ll get your comparison quote
-        within {TURNAROUND_CLAIM}.
+        Our team is reviewing now — most initial reviews are returned
+        within {TURNAROUND_CLAIM}, depending on schedule size and
+        complexity.
       </p>
       <button
         type="button"

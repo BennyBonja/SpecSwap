@@ -7,13 +7,18 @@ import {
   Zap,
   ChevronDown,
   BadgeCheck,
+  Search,
+  GitCompare,
+  PiggyBank,
   type LucideIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { UploadCtaButton } from "@/components/ui/UploadCtaButton";
 import { CountUp } from "@/components/ui/CountUp";
-import { TURNAROUND_CLAIM } from "@/lib/constants";
+import { TURNAROUND_CLAIM, TAGLINE_STEPS } from "@/lib/constants";
+
+const TAGLINE_ICONS: LucideIcon[] = [Search, GitCompare, PiggyBank];
 
 const HERO_STATS: {
   label: string;
@@ -204,6 +209,27 @@ export function Hero() {
                 Illustrative example — your quote reflects your actual
                 schedule and is reviewed by our team before it reaches you.
               </p>
+            </div>
+            <div className="mt-4 grid grid-cols-1 divide-y divide-slate-100 rounded-2xl border border-slate-200 bg-white shadow-sm sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+              {TAGLINE_STEPS.map((step, index) => {
+                const Icon = TAGLINE_ICONS[index] ?? Search;
+                return (
+                  <div
+                    key={step.label}
+                    className="flex items-center gap-3 px-5 py-4"
+                  >
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-coral-50 text-coral-600">
+                      <Icon className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
+                    </span>
+                    <div>
+                      <p className="font-display text-sm font-bold text-navy-900">
+                        {step.label}
+                      </p>
+                      <p className="text-xs text-slate-500">{step.description}</p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
