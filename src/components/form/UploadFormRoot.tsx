@@ -4,7 +4,8 @@ import { useState, type ReactNode } from "react";
 import { upload } from "@vercel/blob/client";
 import { UploadFormProvider, useUploadForm } from "@/components/form/UploadFormProvider";
 import { UploadFormModal } from "@/components/form/UploadFormModal";
-import { buildSubmissionFormData, type UploadedFile } from "@/lib/buildSubmission";
+import { buildLeadSubmission, type UploadedFile } from "@/lib/buildSubmission";
+import { submitToWeb3Forms } from "@/lib/submitToWeb3Forms";
 
 const UPLOAD_CONCURRENCY = 3;
 const MULTIPART_THRESHOLD_BYTES = 100 * 1024 * 1024;
@@ -65,17 +66,14 @@ function ModalWithSubmit() {
         setUploadProgress(null);
       }
 
-      const formData = buildSubmissionFormData(state.answers, uploadedFiles);
-      const response = await fetch("/api/submit-lead", {
-        method: "POST",
-        body: formData,
+      const fields = buildLeadSubmission(state.answers, uploadedFiles);
+      const result = await submitToWeb3Forms(fields, {
+        subject: "New SpecSwap FF&E review request",
+        fromName: "SpecSwap website",
       });
-      const result = await response.json();
 
-      if (!response.ok || !result.success) {
-        submitError(
-          result.message ?? "We couldn't send that. Please try again.",
-        );
+      if (!result.success) {
+        submitError(result.message);
       } else {
         submitSuccess();
       }

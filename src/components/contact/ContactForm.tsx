@@ -4,6 +4,7 @@ import { useState, type FormEvent } from "react";
 import { z } from "zod";
 import { Check } from "lucide-react";
 import { TextField, TextAreaField } from "@/components/form/fields/TextField";
+import { submitToWeb3Forms } from "@/lib/submitToWeb3Forms";
 
 const enquirySchema = z.object({
   name: z.string().trim().min(1, "Enter your name"),
@@ -39,33 +40,28 @@ export function ContactForm() {
       return;
     }
 
+    // Honeypot: real users never fill this hidden field.
+    const botcheck = new FormData(event.currentTarget).get("botcheck");
+    if (botcheck) {
+      setStatus("success");
+      return;
+    }
+
     setErrors({});
     setStatus("submitting");
 
-    try {
-      const formData = new FormData();
-      formData.set("botcheck", "");
-      formData.set("name", fields.name);
-      formData.set("email", fields.email);
-      formData.set("message", fields.message);
+    const submission = await submitToWeb3Forms(
+      { name: fields.name, email: fields.email, message: fields.message },
+      { subject: "New SpecSwap general enquiry", fromName: "SpecSwap website" },
+    );
 
-      const response = await fetch("/api/submit-enquiry", {
-        method: "POST",
-        body: formData,
-      });
-      const data = await response.json();
-
-      if (!response.ok || !data.success) {
-        setSubmitError(data.message ?? "We couldn't send that. Please try again.");
-        setStatus("error");
-        return;
-      }
-
-      setStatus("success");
-    } catch {
-      setSubmitError("We couldn't send that. Please try again.");
+    if (!submission.success) {
+      setSubmitError(submission.message);
       setStatus("error");
+      return;
     }
+
+    setStatus("success");
   };
 
   if (status === "success") {

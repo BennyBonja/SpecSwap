@@ -11,55 +11,37 @@ function formatBytes(bytes: number): string {
   return `${(bytes / (1024 * 1024)).toFixed(1)}MB`;
 }
 
-export function buildSubmissionFormData(
+export function buildLeadSubmission(
   answers: FormAnswers,
   uploadedFiles: UploadedFile[] = [],
-): FormData {
-  const formData = new FormData();
-
-  formData.set("botcheck", "");
-  formData.set("company_name", answers.companyName);
-  formData.set("project_name", answers.projectName);
-  formData.set("project_address", answers.projectAddress);
-  formData.set(
-    "swap_type",
-    answers.swapType === "Other" ? answers.swapTypeOther : answers.swapType,
-  );
-  formData.set(
-    "project_type",
-    answers.projectType === "Other"
-      ? answers.projectTypeOther
-      : answers.projectType,
-  );
-  formData.set(
-    "intent",
-    answers.intent === "Other" ? answers.intentOther : answers.intent,
-  );
-  formData.set("lead_time", answers.leadTime);
-  formData.set("budget", answers.budget);
-  formData.set("notes", answers.notes);
-  formData.set("first_name", answers.firstName);
-  formData.set("last_name", answers.lastName);
-  formData.set("email", answers.email);
-  formData.set("phone", answers.phone);
-  formData.set("upload_authorised", String(answers.uploadAuthorised));
-  formData.set(
-    "supplier_sharing_acknowledged",
-    String(answers.supplierSharingAcknowledged),
-  );
-  formData.set(
-    "substitution_approval_acknowledged",
-    String(answers.substitutionApprovalAcknowledged),
-  );
+): Record<string, string> {
+  const payload: Record<string, string> = {
+    company_name: answers.companyName,
+    project_name: answers.projectName,
+    project_address: answers.projectAddress,
+    swap_type: answers.swapType === "Other" ? answers.swapTypeOther : answers.swapType,
+    project_type:
+      answers.projectType === "Other" ? answers.projectTypeOther : answers.projectType,
+    intent: answers.intent === "Other" ? answers.intentOther : answers.intent,
+    lead_time: answers.leadTime,
+    budget: answers.budget,
+    notes: answers.notes,
+    first_name: answers.firstName,
+    last_name: answers.lastName,
+    email: answers.email,
+    phone: answers.phone,
+    upload_authorised: String(answers.uploadAuthorised),
+    supplier_sharing_acknowledged: String(answers.supplierSharingAcknowledged),
+    substitution_approval_acknowledged: String(
+      answers.substitutionApprovalAcknowledged,
+    ),
+  };
 
   if (uploadedFiles.length > 0) {
-    formData.set(
-      "attachments",
-      uploadedFiles
-        .map((file) => `${file.name} (${formatBytes(file.size)}): ${file.url}`)
-        .join("\n"),
-    );
+    payload.attachments = uploadedFiles
+      .map((file) => `${file.name} (${formatBytes(file.size)}): ${file.url}`)
+      .join("\n");
   }
 
-  return formData;
+  return payload;
 }
