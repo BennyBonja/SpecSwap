@@ -32,9 +32,31 @@ export async function POST(request: Request) {
   try {
     const web3formsResponse = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
+      headers: {
+        Accept: "application/json",
+        // Cloudflare (in front of Web3Forms) can challenge/block requests
+        // that don't look like they came from a browser, which Node's
+        // default fetch User-Agent triggers from serverless environments.
+        "User-Agent":
+          "Mozilla/5.0 (compatible; SpecSwapWebsite/1.0; +https://www.specswap.com.au)",
+      },
       body: outgoing,
     });
-    const result = await web3formsResponse.json();
+    const responseText = await web3formsResponse.text();
+    let result: { success?: boolean; message?: string };
+    try {
+      result = JSON.parse(responseText);
+    } catch {
+      console.error(
+        "Web3Forms returned a non-JSON response",
+        web3formsResponse.status,
+        responseText.slice(0, 500),
+      );
+      return NextResponse.json(
+        { success: false, message: "We couldn't send that. Please try again." },
+        { status: 502 },
+      );
+    }
 
     if (!web3formsResponse.ok || !result.success) {
       console.error("Web3Forms submission failed", result);
