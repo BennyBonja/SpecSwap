@@ -19,14 +19,14 @@ export function WhoItsFor() {
       <Container>
         <SectionHeading
           eyebrow="Who it's for"
-          title="Built for anyone tired of chasing FF&E suppliers"
+          title="Built for anyone tired of paying local trade markups"
           align="center"
         />
-        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <div className="no-scrollbar -mx-6 mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-2 scroll-pl-6 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 sm:scroll-pl-0">
           {AUDIENCE_SEGMENTS.map((segment, index) => (
             <Card
               key={segment.audience}
-              className="flex flex-col transition-transform duration-200 hover:-translate-y-1"
+              className="flex w-[80%] shrink-0 snap-center flex-col transition-transform duration-200 hover:-translate-y-1 sm:w-auto sm:shrink"
             >
               <div className="flex items-center gap-4">
                 <IconBadge

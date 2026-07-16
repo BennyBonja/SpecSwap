@@ -1,86 +1,68 @@
-import Image from "next/image";
-import {
-  Armchair,
-  Lightbulb,
-  Refrigerator,
-  Monitor,
-  Wrench,
-  Blinds,
-  Check,
-  type LucideIcon,
-} from "lucide-react";
+import { CheckCircle2, AlertTriangle, ShieldQuestion, Check, type LucideIcon } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { IconBadge } from "@/components/ui/IconBadge";
-import { WHAT_WE_MANAGE_CATEGORIES } from "@/lib/constants";
+import { Badge } from "@/components/ui/Badge";
+import { WHAT_WE_SOURCE_GROUPS } from "@/lib/constants";
 
-const CATEGORY_ICONS: Record<string, LucideIcon> = {
-  Furniture: Armchair,
-  Lighting: Lightbulb,
-  "Appliances & whitegoods": Refrigerator,
-  "IT & AV": Monitor,
-  "Hardware & accessories": Wrench,
-  "Selected fitout items": Blinds,
+const TIER_ICONS: Record<string, LucideIcon> = {
+  "Lighting, furniture & finishes": CheckCircle2,
+  "Cabinets, doors & stone": ShieldQuestion,
+  "Structural & certified items": AlertTriangle,
 };
 
-const CATEGORY_IMAGES: Record<string, string> = {
-  Furniture: "/images/category-furniture.png",
-  Lighting: "/images/category-lighting.png",
-  "Appliances & whitegoods": "/images/category-appliances.png",
-  "IT & AV": "/images/category-itav.png",
-  "Hardware & accessories": "/images/category-hardware.png",
-  "Selected fitout items": "/images/category-fitout.png",
+const TIER_TONES: Record<string, "coral" | "navy"> = {
+  "Lighting, furniture & finishes": "coral",
+  "Cabinets, doors & stone": "navy",
+  "Structural & certified items": "navy",
 };
 
 export function WhatWeManage() {
   return (
-    <section id="what-we-manage" className="scroll-mt-16 bg-slate-50 py-20">
+    <section id="what-we-source" className="scroll-mt-16 bg-slate-50 py-20">
       <Container>
         <SectionHeading
-          eyebrow="What we manage"
-          title="Furniture, fixtures, equipment and selected fitout items"
-          subtitle="We review the full schedule where useful, then identify the items we can practically support, source, consolidate or value-manage — staying cautious with structural, fire-rated or compliance-critical products."
+          eyebrow="What we source"
+          title="Where China-direct sourcing makes sense — and where it doesn't"
+          subtitle="We stay disciplined about category risk. Low-compliance categories are our focus today; anything structural or fire-rated is reviewed individually, not blanket-offered."
         />
-        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {WHAT_WE_MANAGE_CATEGORIES.map((category, index) => (
+        <div className="no-scrollbar -mx-6 mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-2 scroll-pl-6 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 sm:scroll-pl-0 lg:grid-cols-3">
+          {WHAT_WE_SOURCE_GROUPS.map((group) => (
             <div
-              key={category.title}
-              className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-transform duration-200 hover:-translate-y-1"
+              key={group.tier}
+              className="w-[80%] shrink-0 snap-center rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-transform duration-200 hover:-translate-y-1 sm:w-auto sm:shrink"
             >
-              <div className="relative aspect-[4/3] w-full bg-slate-100">
-                <Image
-                  src={CATEGORY_IMAGES[category.title] ?? "/images/category-furniture.png"}
-                  alt={category.title}
-                  fill
-                  sizes="(min-width: 1024px) 380px, (min-width: 640px) 45vw, 90vw"
-                  className="object-cover"
-                />
+              <div className="flex items-start justify-between">
                 <IconBadge
-                  icon={CATEGORY_ICONS[category.title] ?? Armchair}
-                  tone={index % 2 === 0 ? "coral" : "navy"}
-                  className="absolute bottom-3 left-3 border-2 border-white shadow-md"
+                  icon={TIER_ICONS[group.tier] ?? CheckCircle2}
+                  tone={TIER_TONES[group.tier] ?? "coral"}
+                  size="lg"
                 />
+                <Badge tone={TIER_TONES[group.tier] === "navy" ? "navy" : "coral"}>
+                  {group.riskLabel}
+                </Badge>
               </div>
-              <div className="p-6">
-                <h3 className="font-display text-lg font-bold text-navy-900">
-                  {category.title}
-                </h3>
-                <ul className="mt-3 space-y-1.5">
-                  {category.items.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-start gap-2 text-sm text-slate-600"
-                    >
-                      <Check
-                        className="mt-0.5 h-3.5 w-3.5 shrink-0 text-coral-500"
-                        strokeWidth={2.5}
-                        aria-hidden="true"
-                      />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <h3 className="mt-4 font-display text-lg font-bold text-navy-900">
+                {group.tier}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                {group.description}
+              </p>
+              <ul className="mt-4 space-y-1.5 border-t border-slate-200 pt-4">
+                {group.items.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-2 text-sm text-slate-600"
+                  >
+                    <Check
+                      className="mt-0.5 h-3.5 w-3.5 shrink-0 text-coral-500"
+                      strokeWidth={2.5}
+                      aria-hidden="true"
+                    />
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>

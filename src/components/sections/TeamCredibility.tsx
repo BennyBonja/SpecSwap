@@ -1,59 +1,58 @@
 import {
-  ClipboardList,
-  Truck,
+  ShieldCheck,
+  Lock,
+  ListChecks,
   FileCheck2,
-  HardHat,
   type LucideIcon,
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { TEAM_CREDIBILITY_POINTS } from "@/lib/constants";
+import { TRUST_POINTS, CREDIBILITY_BLURB } from "@/lib/constants";
 
 const POINT_ICONS: Record<string, LucideIcon> = {
-  "Project coordination": ClipboardList,
-  "Supplier management": Truck,
-  "Schedules & handover": FileCheck2,
-  "Construction admin": HardHat,
+  "Factory vetting & QC": ShieldCheck,
+  "Payment & fund security": Lock,
+  "Compliance discipline": ListChecks,
+  "Warranties & after-sales": FileCheck2,
 };
 
 export function TeamCredibility() {
   return (
-    <section
-      id="team-credibility"
-      className="scroll-mt-16 relative overflow-hidden bg-navy-900 py-20"
-    >
-      <div
-        className="bg-blueprint-grid pointer-events-none absolute inset-0 opacity-40"
-        aria-hidden="true"
-      />
-      <Container className="relative">
+    <section id="team-credibility" className="scroll-mt-16 bg-slate-50 py-20">
+      <Container>
         <SectionHeading
-          tone="dark"
           align="center"
-          eyebrow="Who's behind SpecSwap"
-          title="Built by people who understand construction, fitout and procurement"
-          subtitle="SpecSwap is operated by Bonja Group. The team's background is in the day-to-day of project delivery — not just sourcing products, but the coordination, schedules and handover admin that comes with a live build."
+          eyebrow="Trust & process"
+          title="Built by people who go and check, not just promise"
         />
         <div className="mx-auto mt-10 grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {TEAM_CREDIBILITY_POINTS.map((point) => {
-            const Icon = POINT_ICONS[point.title] ?? HardHat;
+          {TRUST_POINTS.map((point) => {
+            const Icon = POINT_ICONS[point.title] ?? ShieldCheck;
             return (
               <div
                 key={point.title}
-                className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-colors hover:bg-white/10"
+                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
               >
-                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-coral-400">
+                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-coral-50 text-coral-600">
                   <Icon className="h-5 w-5" strokeWidth={2} aria-hidden="true" />
                 </span>
-                <h3 className="mt-4 font-display text-base font-bold text-white">
+                <h3 className="mt-4 font-display text-base font-bold text-navy-900">
                   {point.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-navy-200">
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">
                   {point.description}
                 </p>
               </div>
             );
           })}
+        </div>
+        <div className="mx-auto mt-8 max-w-3xl rounded-2xl bg-white p-8 text-center shadow-sm">
+          <p className="text-xs font-semibold uppercase tracking-wider text-coral-600">
+            Our mission
+          </p>
+          <p className="mt-3 text-base leading-relaxed text-slate-600">
+            {CREDIBILITY_BLURB}
+          </p>
         </div>
       </Container>
     </section>

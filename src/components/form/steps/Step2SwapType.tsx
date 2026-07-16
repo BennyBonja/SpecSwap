@@ -9,7 +9,7 @@ export function Step2SwapType() {
 
   return (
     <OptionCardGroup
-      legend="What do you want swapped?"
+      legend="What are you sourcing?"
       name="swapType"
       options={SWAP_TYPE_OPTIONS}
       value={state.answers.swapType}

@@ -6,7 +6,7 @@ import { useUploadForm } from "@/components/form/UploadFormProvider";
 type Variant = "primary" | "secondary" | "outline-light";
 
 export function UploadCtaButton({
-  children = "Upload FF&E for review",
+  children = "Start a project",
   variant = "primary",
   className = "",
 }: {

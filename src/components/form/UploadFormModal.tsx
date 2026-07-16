@@ -117,7 +117,7 @@ export function UploadFormModal({
         ref={dialogRef}
         role="dialog"
         aria-modal="true"
-        aria-label="Upload FF&E for review"
+        aria-label="Start a project"
         className="w-full max-w-xl rounded-2xl bg-white p-6 shadow-lg sm:p-8"
       >
         <div className="flex justify-end">

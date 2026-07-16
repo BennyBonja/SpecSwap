@@ -19,7 +19,7 @@ import {
 export const metadata: Metadata = {
   title: "Contact Us — SpecSwap",
   description:
-    "Get support, ask a general question, or start your FF&E comparison quote.",
+    "Get support, ask a general question, or start your project with SpecSwap.",
 };
 
 export default function ContactPage() {
@@ -59,7 +59,7 @@ export default function ContactPage() {
           </div>
           <div className="relative hidden aspect-square w-full overflow-hidden rounded-2xl border border-slate-200 shadow-sm lg:block">
             <Image
-              src="/images/contact-person.png"
+              src="/images/contact-person.webp"
               alt="Friendly, real support — not a call centre"
               fill
               sizes="500px"
@@ -78,8 +78,8 @@ export default function ContactPage() {
                 Existing customer?
               </h2>
               <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">
-                Already uploaded a schedule or have a question about your
-                quote? Reach our support team directly.
+                Already uploaded a project or have a question about your
+                discovery call? Reach our support team directly.
               </p>
               <div className="mt-4 space-y-2 text-sm">
                 <a
@@ -102,11 +102,11 @@ export default function ContactPage() {
             <Card className="flex flex-col transition-transform duration-200 hover:-translate-y-1">
               <IconBadge icon={Upload} tone="navy" />
               <h2 className="mt-4 font-display text-lg font-bold text-navy-900">
-                Want a quote?
+                Want to get started?
               </h2>
               <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">
-                No need to wait — upload your FF&E schedule now and get a
-                comparison quote within 24–48 hours.
+                No need to wait — upload your project now and we&apos;ll
+                review it before your free discovery call.
               </p>
               <UploadCtaButton className="mt-4 w-full justify-center" />
             </Card>

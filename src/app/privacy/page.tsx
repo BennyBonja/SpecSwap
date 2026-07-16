@@ -19,7 +19,7 @@ export default function PrivacyPolicyPage() {
           Privacy Policy
         </h1>
         <p className="mt-2 text-sm text-slate-500">
-          Last updated: 6 July 2026
+          Last updated: 16 July 2026
         </p>
 
         <div className="mt-10 space-y-10 text-sm leading-relaxed text-slate-600">
@@ -205,10 +205,10 @@ export default function PrivacyPolicyPage() {
                 "complete an enquiry or upload form",
                 "upload files or project documents",
                 "email, call or message us",
-                "request a quote",
+                "book a Free Discovery Call or Sourcing Strategy Session",
                 "request a SpecSwap review",
-                "engage our procurement services",
-                "approve a product, quote or substitution",
+                "engage our sourcing and brokerage services",
+                "approve a sourced product or recommendation",
                 "provide delivery or site information",
                 "communicate with us during a project",
                 "provide feedback",
@@ -248,13 +248,13 @@ export default function PrivacyPolicyPage() {
               items={[
                 "respond to enquiries",
                 "review uploaded project documents",
-                "assess FF&E and selected fitout requirements",
-                "prepare SpecSwap reports, quotes and recommendations",
-                "source original specified products",
-                "identify better-value or faster-available alternatives",
+                "assess FF&E, construction and fitout requirements for overseas sourcing",
+                "prepare SpecSwap reports, sourcing plans and recommendations",
+                "identify, vet and negotiate with factories and suppliers in China and other overseas markets",
+                "identify better-value alternatives sourced direct from overseas factories",
                 "check product suitability, design intent, lead times and availability",
-                "communicate with suppliers, consultants and installers",
-                "manage procurement",
+                "communicate with factories, suppliers, consultants and installers",
+                "manage sourcing, quality control and freight coordination",
                 "place or administer orders",
                 "coordinate delivery",
                 "coordinate selected installation support",

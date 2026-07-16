@@ -1,22 +1,22 @@
-import { Check, FileText } from "lucide-react";
+import { Check, Sparkles } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { QUOTE_INCLUDES_ITEMS } from "@/lib/constants";
+import { STRATEGY_SESSION_INCLUDES } from "@/lib/constants";
 
-function QuoteDocumentMockup() {
+function SessionDocumentMockup() {
   return (
     <div className="mx-auto w-full max-w-md overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
       <div className="flex items-center justify-between bg-navy-900 px-6 py-4">
         <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-navy-300">
-          <FileText className="h-4 w-4 text-coral-400" aria-hidden="true" />
-          Sample quote
+          <Sparkles className="h-4 w-4 text-coral-400" aria-hidden="true" />
+          Sourcing Strategy Session — $499
         </div>
         <span className="rounded-full bg-coral-500 px-2.5 py-1 text-xs font-semibold text-white">
-          Ready
+          Credited
         </span>
       </div>
       <ul className="divide-y divide-slate-100">
-        {QUOTE_INCLUDES_ITEMS.map((item) => (
+        {STRATEGY_SESSION_INCLUDES.map((item) => (
           <li
             key={item}
             className="flex items-center gap-3 px-6 py-2.5 text-sm text-navy-900"
@@ -32,7 +32,7 @@ function QuoteDocumentMockup() {
         ))}
       </ul>
       <p className="border-t border-slate-200 bg-slate-50 px-6 py-3 text-xs text-slate-500">
-        Reviewed by our team before it reaches you.
+        Free discovery call happens first — this is the paid deep-dive.
       </p>
     </div>
   );
@@ -44,12 +44,12 @@ export function QuoteIncludes() {
       <Container className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
         <div>
           <SectionHeading
-            eyebrow="What your quote includes"
-            title="Everything you need to make the call"
-            subtitle="No black boxes — every comparison quote is laid out the same way, so you can compare on the details that matter."
+            eyebrow="What's in your strategy session"
+            title="We plan your DIY journey — then you decide"
+            subtitle="Most clients start here to see exactly what sourcing from China direct would take. No black boxes — every session covers the same ground."
           />
         </div>
-        <QuoteDocumentMockup />
+        <SessionDocumentMockup />
       </Container>
     </section>
   );

@@ -53,8 +53,8 @@ export function Step8Contact() {
               className="mt-0.5 rounded border-slate-400 text-coral-500 focus:ring-navy-500"
             />
             I confirm I am authorised to upload these documents and share
-            them with SpecSwap for review, quoting, sourcing and
-            procurement purposes.
+            them with SpecSwap for review, sourcing and procurement
+            purposes.
           </label>
           {state.errors.uploadAuthorised ? (
             <p className="mt-1.5 text-sm text-coral-700">

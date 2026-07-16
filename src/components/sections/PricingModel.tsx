@@ -1,172 +1,110 @@
-import { Target, Repeat, Ship, Star, type LucideIcon } from "lucide-react";
+import {
+  BookOpen,
+  PhoneCall,
+  Sparkles,
+  Ship,
+  Check,
+  type LucideIcon,
+} from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { IconBadge } from "@/components/ui/IconBadge";
-import { SOURCING_MODELS } from "@/lib/constants";
+import { UploadCtaButton } from "@/components/ui/UploadCtaButton";
+import { Button } from "@/components/ui/Button";
+import { PRICING_TIERS } from "@/lib/constants";
 
-const MODEL_ICONS: Record<string, LucideIcon> = {
-  Specified: Target,
-  Swapped: Repeat,
-  Imported: Ship,
+const TIER_ICONS: Record<string, LucideIcon> = {
+  "Construction Offshore Bible": BookOpen,
+  "Free Discovery Call": PhoneCall,
+  "Sourcing Strategy Session": Sparkles,
+  "Full-Cycle Sourcing & Management": Ship,
 };
 
-function StarRating({ value }: { value: number }) {
-  return (
-    <span className="flex items-center gap-0.5" aria-label={`${value} out of 5`}>
-      {Array.from({ length: 5 }, (_, i) => (
-        <Star
-          key={i}
-          className={`h-3.5 w-3.5 ${
-            i < value ? "fill-coral-500 text-coral-500" : "text-slate-200"
-          }`}
-          aria-hidden="true"
-        />
-      ))}
-    </span>
-  );
-}
+const TIER_CTA_LABELS: Record<string, string> = {
+  "Construction Offshore Bible": "Get the guide",
+  "Free Discovery Call": "Book your free call",
+  "Sourcing Strategy Session": "Book your session",
+};
 
 export function PricingModel() {
   return (
     <section id="pricing-model" className="scroll-mt-16 py-20">
       <Container>
         <SectionHeading
-          eyebrow="Specified, swapped, imported"
-          title="The swap is the heart of what we do"
-          subtitle="For most schedules, we swap the specified item for a better-value alternative that protects design intent. Specified and imported are the exceptions we also handle well."
+          eyebrow="Pricing"
+          title="4 ways to work with us"
+          subtitle="Start wherever makes sense for you. The Bible and the strategy session are both credited toward the next step if you keep going."
           align="center"
         />
-        <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3">
-          {SOURCING_MODELS.map((model, index) => {
-            const isSwap = model.title === "Swapped";
-            return (
-              <Card
-                key={model.title}
-                highlighted={isSwap}
-                className={`flex flex-col transition-transform duration-200 ${
-                  isSwap
-                    ? "shadow-lg lg:-translate-y-3"
-                    : "hover:-translate-y-1"
+        <div className="no-scrollbar -mx-6 mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-2 pt-4 scroll-pl-6 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 sm:scroll-pl-0 lg:grid-cols-4">
+          {PRICING_TIERS.map((tier) => (
+            <Card
+              key={tier.title}
+              highlighted={tier.recommended}
+              tinted={tier.recommended}
+              className={`relative flex w-[80%] shrink-0 snap-center flex-col overflow-visible transition-transform sm:w-auto sm:shrink ${
+                tier.recommended ? "shadow-xl lg:-translate-y-4" : ""
+              }`}
+            >
+              {tier.recommended ? (
+                <span className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-navy-900 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-white shadow-lg">
+                  {tier.tagline}
+                </span>
+              ) : (
+                <Badge tone="navy">{tier.tagline}</Badge>
+              )}
+              <IconBadge
+                icon={TIER_ICONS[tier.title] ?? BookOpen}
+                tone={tier.recommended ? "coral" : "navy"}
+                className="mt-4"
+              />
+              <h3 className="mt-4 font-display text-lg font-bold text-navy-900">
+                {tier.title}
+              </h3>
+              <p
+                className={`mt-2 inline-flex w-fit items-baseline gap-1 rounded-full px-3 py-1 font-display text-2xl font-extrabold ${
+                  tier.recommended
+                    ? "bg-coral-500 text-white"
+                    : "bg-coral-50 text-coral-600"
                 }`}
               >
-                <div className="flex items-start justify-between">
-                  <IconBadge
-                    icon={MODEL_ICONS[model.title] ?? Target}
-                    tone={isSwap || index % 2 === 0 ? "coral" : "navy"}
-                  />
-                  {isSwap ? <Badge>Most common</Badge> : null}
-                </div>
-                <h3 className="mt-4 font-display text-xl font-bold text-navy-900">
-                  {model.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600">
-                  {model.description}
-                </p>
-                <dl className="mt-6 space-y-3 border-t border-slate-200 pt-4 text-sm">
-                  <div>
-                    <dt className="text-slate-500">Savings</dt>
-                    <dd className="font-medium text-navy-900">
-                      {model.savings}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="text-slate-500">Lead time</dt>
-                    <dd className="font-medium text-navy-900">
-                      {model.leadTime}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="text-slate-500">Best for</dt>
-                    <dd className="font-medium text-navy-900">
-                      {model.bestFor}
-                    </dd>
-                  </div>
-                </dl>
-              </Card>
-            );
-          })}
-        </div>
-
-        <div className="mt-10 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
-          <table className="w-full min-w-[560px] text-left text-sm">
-            <thead>
-              <tr className="border-b border-slate-200">
-                <th className="px-4 py-3 font-medium text-slate-500 sm:px-6">
-                  &nbsp;
-                </th>
-                {SOURCING_MODELS.map((model) => (
-                  <th
-                    key={model.title}
-                    className={`px-4 py-3 text-xs font-semibold uppercase tracking-wide sm:px-6 ${
-                      model.title === "Swapped"
-                        ? "text-coral-600"
-                        : "text-navy-900"
-                    }`}
-                  >
-                    {model.title}
-                  </th>
+                {tier.price}
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                {tier.description}
+              </p>
+              <ul className="mt-6 flex-1 space-y-2 border-t border-slate-200 pt-4 text-sm text-navy-700">
+                {tier.features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-2">
+                    <Check
+                      className="mt-0.5 h-4 w-4 shrink-0 text-coral-500"
+                      strokeWidth={2.5}
+                      aria-hidden="true"
+                    />
+                    {feature}
+                  </li>
                 ))}
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-slate-100">
-              <tr>
-                <th className="px-4 py-3 font-medium text-slate-500 sm:px-6">
-                  Price
-                </th>
-                {SOURCING_MODELS.map((model) => (
-                  <td
-                    key={model.title}
-                    className="px-4 py-3 text-navy-900 sm:px-6"
-                  >
-                    {model.priceLabel}
-                  </td>
-                ))}
-              </tr>
-              <tr>
-                <th className="px-4 py-3 font-medium text-slate-500 sm:px-6">
-                  Lead time
-                </th>
-                {SOURCING_MODELS.map((model) => (
-                  <td
-                    key={model.title}
-                    className="px-4 py-3 text-navy-900 sm:px-6"
-                  >
-                    {model.leadTime}
-                  </td>
-                ))}
-              </tr>
-              <tr>
-                <th className="px-4 py-3 font-medium text-slate-500 sm:px-6">
-                  Design fidelity
-                </th>
-                {SOURCING_MODELS.map((model) => (
-                  <td key={model.title} className="px-4 py-3 sm:px-6">
-                    <div className="flex items-center gap-2">
-                      <StarRating value={model.designFidelity} />
-                      <span className="text-xs text-slate-500">
-                        {model.fidelityLabel}
-                      </span>
-                    </div>
-                  </td>
-                ))}
-              </tr>
-              <tr>
-                <th className="px-4 py-3 font-medium text-slate-500 sm:px-6">
-                  Best for
-                </th>
-                {SOURCING_MODELS.map((model) => (
-                  <td
-                    key={model.title}
-                    className="px-4 py-3 text-navy-900 sm:px-6"
-                  >
-                    {model.bestFor}
-                  </td>
-                ))}
-              </tr>
-            </tbody>
-          </table>
+              </ul>
+              {tier.title === "Full-Cycle Sourcing & Management" ? (
+                <Button
+                  href="#one-point-of-contact"
+                  variant="secondary"
+                  className="mt-6 w-full justify-center"
+                >
+                  Learn more
+                </Button>
+              ) : (
+                <UploadCtaButton
+                  variant={tier.recommended ? "primary" : "secondary"}
+                  className="mt-6 w-full justify-center hover:scale-[1.03]"
+                >
+                  {TIER_CTA_LABELS[tier.title] ?? "Get started"}
+                </UploadCtaButton>
+              )}
+            </Card>
+          ))}
         </div>
       </Container>
     </section>

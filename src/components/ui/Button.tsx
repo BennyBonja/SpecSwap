@@ -29,7 +29,7 @@ type ButtonAsLink = CommonProps & {
 export function Button(props: ButtonAsButton | ButtonAsLink) {
   const { children, variant = "primary", className = "", ...rest } = props;
   const base =
-    "inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 cursor-pointer";
+    "inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 cursor-pointer";
   const classes = `${base} ${variantClasses[variant]} ${className}`;
 
   if ("href" in rest && rest.href) {

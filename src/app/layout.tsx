@@ -19,9 +19,9 @@ const lexend = Lexend({
 
 const SITE_URL = "https://www.specswap.com.au";
 const SITE_TITLE =
-  "SpecSwap — Swap Specified FF&E for Smarter, Cheaper Alternatives";
+  "SpecSwap — China-Direct Construction Procurement Brokerage";
 const SITE_DESCRIPTION =
-  "SpecSwap swaps your specified furniture, fixtures and equipment for better-value alternatives that protect design intent — then sources, supplies and manages the whole process for you.";
+  "SpecSwap connects Australian builders direct to vetted factories in China — sourcing, negotiating, QC and freight, managed for you, factory pricing without factory risk.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

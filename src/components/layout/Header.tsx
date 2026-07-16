@@ -38,7 +38,7 @@ export function Header() {
           </Link>
           <nav
             aria-label="Primary"
-            className="hidden items-center gap-8 md:flex"
+            className="hidden items-center gap-6 lg:flex xl:gap-8"
           >
             {NAV_LINKS.map((link) => (
               <a
@@ -52,14 +52,14 @@ export function Header() {
           </nav>
           <div className="flex items-center gap-2">
             <UploadCtaButton className="hidden px-4 py-2 text-sm sm:inline-flex">
-              Upload FF&E
+              Start a project
             </UploadCtaButton>
             <button
               type="button"
               aria-expanded={menuOpen}
               aria-controls="mobile-nav"
               onClick={() => setMenuOpen((open) => !open)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-navy-900 md:hidden"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-navy-900 lg:hidden"
             >
               <span className="sr-only">
                 {menuOpen ? "Close menu" : "Open menu"}
@@ -93,7 +93,7 @@ export function Header() {
           <nav
             id="mobile-nav"
             aria-label="Primary"
-            className="border-t border-slate-200 bg-white md:hidden"
+            className="border-t border-slate-200 bg-white lg:hidden"
           >
             <Container className="flex flex-col gap-4 py-4">
               {NAV_LINKS.map((link) => (
@@ -107,7 +107,7 @@ export function Header() {
                 </a>
               ))}
               <UploadCtaButton className="w-full justify-center px-4 py-2 text-sm sm:hidden">
-                Upload FF&E
+                Start a project
               </UploadCtaButton>
             </Container>
           </nav>

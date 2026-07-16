@@ -31,8 +31,7 @@ export default function Image() {
             maxWidth: 900,
           }}
         >
-          We swap specified FF&E for smarter, more cost-effective
-          alternatives.
+          We go to the factory floor, so you don&apos;t have to.
         </div>
         <div
           style={{
@@ -45,7 +44,7 @@ export default function Image() {
             letterSpacing: 2,
           }}
         >
-          24–48 hour comparison quote
+          China-direct construction procurement
         </div>
       </div>
     ),

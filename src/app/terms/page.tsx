@@ -23,7 +23,7 @@ export default function TermsAndConditionsPage() {
         <dl className="mt-4 space-y-1 text-sm text-slate-500">
           <div className="flex gap-2">
             <dt className="font-medium text-navy-900">Effective date:</dt>
-            <dd>6 July 2026</dd>
+            <dd>16 July 2026</dd>
           </div>
           <div className="flex gap-2">
             <dt className="font-medium text-navy-900">Business name:</dt>
@@ -69,22 +69,27 @@ export default function TermsAndConditionsPage() {
         <div className="mt-10 space-y-10 text-sm leading-relaxed text-slate-600">
           <LegalSection number={1} title="About SpecSwap">
             <p>
-              SpecSwap provides FF&E procurement, specification review,
-              product sourcing, value-management, procurement
-              administration, ordering coordination, delivery coordination,
-              selected installation coordination and handover documentation
-              services.
+              SpecSwap is a China-first construction procurement broker. We
+              identify, vet and negotiate with factories and suppliers in
+              China on behalf of Australian clients, and provide
+              information products, advisory sessions, and full-cycle
+              sourcing and management services for construction, fitout and
+              furniture, fixtures &amp; equipment (FF&amp;E) products sourced
+              internationally.
             </p>
             <p>
               Our services may include reviewing furniture, fixtures,
-              equipment, appliances, IT/AV, lighting, acoustic products,
-              accessories, selected wall and ceiling products and other
-              non-structural fitout-related products.
+              equipment, appliances, lighting, hardware, acoustic products,
+              joinery, cabinetry, windows and doors, natural stone, metalwork,
+              flooring and other selected fitout-related products.
             </p>
             <p>
-              SpecSwap is not a builder, architect, engineer, building
-              surveyor or certifier. Unless expressly agreed in writing, we
-              do not provide architectural, engineering, building
+              SpecSwap acts as a broker and process manager, not an importer
+              of record, customs broker, freight forwarder or licensed trade
+              contractor, unless expressly agreed in writing for a specific
+              engagement. SpecSwap is not a builder, architect, engineer,
+              building surveyor or certifier. Unless expressly agreed in
+              writing, we do not provide architectural, engineering, building
               certification, building surveying or regulated design
               services.
             </p>
@@ -111,11 +116,31 @@ export default function TermsAndConditionsPage() {
             </p>
             <p>
               <strong className="text-navy-900">&ldquo;Services&rdquo;</strong>{" "}
-              means any service provided by SpecSwap, including
-              specification review, product sourcing, procurement
-              management, report-only support, order-on-behalf
-              administration, delivery coordination, selected installation
+              means any service provided by SpecSwap, including the
+              Construction Offshore Bible, the Free Discovery Call, the
+              Sourcing Strategy Session, Full-Cycle Sourcing &amp;
+              Management, specification review, product sourcing, factory
+              vetting and negotiation, quality control coordination, freight
+              coordination, delivery coordination, selected installation
               coordination and handover documentation.
+            </p>
+            <p>
+              <strong className="text-navy-900">
+                &ldquo;Landed Cost&rdquo;
+              </strong>{" "}
+              means the total cost of a Product delivered to the agreed
+              Australian destination, including factory/supplier price,
+              inspection and quality-control costs, freight, insurance,
+              customs duties, taxes and related clearance charges, but
+              excluding SpecSwap&apos;s own fees.
+            </p>
+            <p>
+              <strong className="text-navy-900">
+                &ldquo;Brokerage Fee&rdquo;
+              </strong>{" "}
+              means the fee payable to SpecSwap under a Full-Cycle Sourcing
+              &amp; Management engagement, calculated as a percentage of
+              Landed Cost as set out in clause 3.4 and clause 12.
             </p>
             <p>
               <strong className="text-navy-900">&ldquo;Products&rdquo;</strong>{" "}
@@ -163,40 +188,54 @@ export default function TermsAndConditionsPage() {
               types.
             </p>
 
-            <LegalSubHeading>3.1 Full Procurement Service</LegalSubHeading>
+            <LegalSubHeading>3.1 Construction Offshore Bible</LegalSubHeading>
             <p>
-              Under a Full Procurement Service, SpecSwap may assist with
-              reviewing specifications, sourcing products, recommending
-              alternatives, obtaining pricing, coordinating suppliers,
-              placing or facilitating orders, managing procurement
-              follow-up, coordinating delivery, supporting selected
-              installation and preparing handover documentation.
+              The Construction Offshore Bible is a paid digital information
+              product sold for a one-off fee. It is general information only,
+              not advice tailored to your specific project, and does not
+              constitute an engagement of SpecSwap&apos;s advisory or
+              sourcing Services.
+            </p>
+
+            <LegalSubHeading>3.2 Free Discovery Call</LegalSubHeading>
+            <p>
+              The Free Discovery Call is a no-cost, no-obligation
+              conversation following review of any project information you
+              upload. It is provided to help you understand whether
+              China-direct sourcing may be worthwhile for your project and
+              does not itself constitute a binding recommendation,
+              valuation or Proposal.
+            </p>
+
+            <LegalSubHeading>3.3 Sourcing Strategy Session</LegalSubHeading>
+            <p>
+              The Sourcing Strategy Session is a paid advisory session in
+              which SpecSwap sets out a sourcing plan for your project,
+              including candidate categories, suppliers or factories to
+              approach, suggested package structuring and the practical
+              steps involved, whether you proceed independently or engage
+              SpecSwap further. The fee for a Sourcing Strategy Session will
+              be credited in full toward the Brokerage Fee if you engage
+              SpecSwap for Full-Cycle Sourcing &amp; Management on the same
+              project within the period stated in your Proposal or, if none
+              is stated, within 6 months of the session.
             </p>
 
             <LegalSubHeading>
-              3.2 Report-Only or Supply List Service
+              3.4 Full-Cycle Sourcing &amp; Management
             </LegalSubHeading>
             <p>
-              Under a Report-Only or Supply List Service, SpecSwap provides
-              recommendations, supplier options, product information,
-              lead-time notes, pricing indications and/or alternative
-              product suggestions. The client remains responsible for
-              ordering, delivery, installation, final checks and
-              procurement execution unless otherwise agreed.
+              Under a Full-Cycle Sourcing &amp; Management engagement,
+              SpecSwap sources, negotiates with, and manages factories and
+              suppliers on your behalf, coordinates quality control and
+              pre-shipment inspection, coordinates freight, and manages
+              delivery to your site. SpecSwap charges a Brokerage Fee for
+              this Service, calculated as a percentage of Landed Cost as set
+              out in your Proposal (5% of Landed Cost unless a different
+              rate is expressly agreed in writing).
             </p>
 
-            <LegalSubHeading>
-              3.3 Order-on-Behalf / Procurement Administration
-            </LegalSubHeading>
-            <p>
-              Under an Order-on-Behalf or Procurement Administration
-              Service, SpecSwap may place orders, communicate with
-              suppliers and coordinate procurement tasks on your behalf for
-              an agreed administration, procurement management or service
-              fee.
-            </p>
-
-            <LegalSubHeading>3.4 Custom service scope</LegalSubHeading>
+            <LegalSubHeading>3.5 Custom service scope</LegalSubHeading>
             <p>
               The exact scope of work will be set out in the relevant
               Proposal, quote, email, written agreement or approved scope.
@@ -208,8 +247,13 @@ export default function TermsAndConditionsPage() {
 
           <LegalSection number={4} title="Scope limitations">
             <p>
-              SpecSwap focuses on FF&E and selected non-structural,
-              product-heavy fitout categories.
+              SpecSwap focuses on low-compliance-risk categories suitable
+              for direct overseas sourcing today, such as lighting, mirrors,
+              decorative hardware, acoustic panels, loose and decorative
+              furniture, and flooring and tiling. Categories such as
+              cabinetry, joinery, windows, doors, natural stone and
+              metalwork involve more coordination and are considered on a
+              project-by-project basis.
             </p>
             <p>
               Unless expressly agreed in writing, our services do not
@@ -430,6 +474,32 @@ export default function TermsAndConditionsPage() {
               Payment terms will be set out in the relevant Proposal, quote
               or invoice.
             </p>
+
+            <LegalSubHeading>Brokerage Fee</LegalSubHeading>
+            <p>
+              For Full-Cycle Sourcing &amp; Management engagements, the
+              Brokerage Fee is calculated as a percentage of Landed Cost
+              (5% unless otherwise agreed in writing). The Brokerage Fee is
+              in addition to, not inclusive of, the Landed Cost itself,
+              which is generally payable to the relevant factory, supplier
+              or freight provider (whether directly by you or coordinated by
+              SpecSwap, as set out in your Proposal).
+            </p>
+            <p>
+              Where you have paid for a Sourcing Strategy Session and
+              subsequently engage SpecSwap for Full-Cycle Sourcing &amp;
+              Management on the same project within the period described in
+              clause 3.3, the Sourcing Strategy Session fee will be credited
+              in full against the Brokerage Fee payable for that
+              engagement. This credit does not apply where the engagements
+              relate to different projects, or where the qualifying period
+              has lapsed.
+            </p>
+            <p>
+              SpecSwap will provide an itemised breakdown of Landed Cost
+              components on request before invoicing the Brokerage Fee.
+            </p>
+
             <p>Unless otherwise agreed in writing:</p>
             <LegalList
               items={[
@@ -627,27 +697,32 @@ export default function TermsAndConditionsPage() {
 
           <LegalSection number={21} title="Imported products">
             <p>
-              Where imported products are considered or supplied,
-              additional risks may apply, including:
+              Because SpecSwap&apos;s Services centre on sourcing products
+              direct from factories and suppliers in China and other
+              overseas markets, the following risks apply to most
+              engagements, including:
             </p>
             <LegalList
               items={[
-                "longer lead times",
+                "longer lead times than locally-stocked products",
                 "shipping delays",
-                "customs delays",
+                "customs delays and biosecurity inspection",
                 "duties and taxes",
                 "currency fluctuations",
                 "minimum order quantities",
                 "sampling requirements",
-                "quality control requirements",
-                "limited return options",
-                "different warranty processes",
+                "quality control and pre-shipment inspection requirements",
+                "limited return options once goods have left the factory",
+                "different warranty processes to local suppliers",
                 "freight damage risks",
               ]}
             />
             <p>
-              Imported products should only proceed after written approval
-              and acceptance of the relevant risks, pricing and lead times.
+              SpecSwap will disclose relevant category-specific risks during
+              the Free Discovery Call or Sourcing Strategy Session, but
+              orders should only proceed after written approval and
+              acceptance of the risks, pricing and lead times relevant to
+              your project.
             </p>
           </LegalSection>
 

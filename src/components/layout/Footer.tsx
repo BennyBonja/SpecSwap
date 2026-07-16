@@ -16,9 +16,9 @@ export function Footer() {
             Spec<span className="text-coral-500">Swap</span>
           </p>
           <p className="mt-2 max-w-sm text-sm leading-relaxed">
-            We swap specified furniture, fixtures and equipment for
-            better-value alternatives — then source, supply and manage the
-            whole process through one coordinated point of contact.
+            A China-first construction procurement broker — we connect
+            Australian builders direct to vetted factories, then manage
+            sourcing, QC and freight from factory to site.
           </p>
           <div className="mt-4 flex flex-col gap-2 text-sm">
             <a
