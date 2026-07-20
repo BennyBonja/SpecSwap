@@ -55,52 +55,38 @@ function toValidationResult(result: {
   return { success: false, errors };
 }
 
-const step0Schema = z.object({
+const contactSchema = z.object({
+  firstName: z.string().trim().min(1, "Enter your first name"),
+  lastName: z.string().trim().min(1, "Enter your last name"),
   companyName: z.string().trim().min(1, "Enter your company name"),
-  projectName: z.string().trim().min(1, "Enter your project name"),
-  projectAddress: z.string().trim().min(1, "Enter your project address"),
+  role: z.string().optional(),
+  email: z.email("Enter a valid email address"),
+  phone: z.string().trim().min(1, "Enter your phone number"),
 });
 
-const step1Schema = z
+const projectSchema = z
   .object({
-    swapType: z.string().min(1, "Choose an option"),
-    swapTypeOther: z.string().optional(),
-  })
-  .refine(
-    (val) => val.swapType !== "Other" || Boolean(val.swapTypeOther?.trim()),
-    { message: "Tell us what you'd like swapped", path: ["swapTypeOther"] },
-  );
-
-const step2Schema = z
-  .object({
-    projectType: z.string().min(1, "Choose an option"),
+    projectName: z.string().trim().min(1, "Enter your project name"),
+    projectLocation: z.string().trim().min(1, "Enter your project location"),
+    projectType: z.string().min(1, "Choose a project type"),
     projectTypeOther: z.string().optional(),
+    projectValueBand: z.string().min(1, "Choose an approximate project value"),
+    requiredOnSiteDate: z.string().trim().min(1, "Enter a required-on-site date"),
   })
   .refine(
-    (val) =>
-      val.projectType !== "Other" || Boolean(val.projectTypeOther?.trim()),
+    (val) => val.projectType !== "Other" || Boolean(val.projectTypeOther?.trim()),
     { message: "Tell us your project type", path: ["projectTypeOther"] },
   );
 
-const step3Schema = z
-  .object({
-    intent: z.string().min(1, "Choose an option"),
-    intentOther: z.string().optional(),
-  })
-  .refine((val) => val.intent !== "Other" || Boolean(val.intentOther?.trim()), {
-    message: "Tell us what you're looking for",
-    path: ["intentOther"],
-  });
-
-const step4Schema = z.object({
-  leadTime: z.string().min(1, "Choose a lead time"),
+const packageSchema = z.object({
+  packageDescription: z.string().trim().min(1, "Tell us what product or package this is"),
+  packageQuantity: z.string().trim().min(1, "Enter an approximate quantity"),
+  currentLocalQuote: z.string().optional(),
+  specFixed: z.string().min(1, "Choose an option"),
+  priorities: z.array(z.string()),
 });
 
-const step5Schema = z.object({
-  budget: z.string().trim().min(1, "Enter your budget"),
-});
-
-const step6Schema = z.object({
+const filesSchema = z.object({
   files: z
     .array(z.instanceof(File))
     .min(1, "Upload at least one file to continue")
@@ -123,11 +109,7 @@ const step6Schema = z.object({
     ),
 });
 
-const step7Schema = z.object({
-  firstName: z.string().trim().min(1, "Enter your first name"),
-  lastName: z.string().trim().min(1, "Enter your last name"),
-  email: z.email("Enter a valid email address"),
-  phone: z.string().trim().min(1, "Enter your phone number"),
+const permissionsSchema = z.object({
   termsAccepted: z.literal(true, {
     error: "You must agree to the terms and conditions",
   }),
@@ -140,17 +122,16 @@ const step7Schema = z.object({
   substitutionApprovalAcknowledged: z.literal(true, {
     error: "Please acknowledge that substitutions need stakeholder approval",
   }),
+  factoryDiscussionConsent: z.boolean(),
+  clarificationContactConsent: z.boolean(),
 });
 
 export const stepSchemas: ((answers: FormAnswers) => ValidationResult)[] = [
-  (answers) => toValidationResult(step0Schema.safeParse(answers)),
-  (answers) => toValidationResult(step1Schema.safeParse(answers)),
-  (answers) => toValidationResult(step2Schema.safeParse(answers)),
-  (answers) => toValidationResult(step3Schema.safeParse(answers)),
-  (answers) => toValidationResult(step4Schema.safeParse(answers)),
-  (answers) => toValidationResult(step5Schema.safeParse(answers)),
-  (answers) => toValidationResult(step6Schema.safeParse(answers)),
-  (answers) => toValidationResult(step7Schema.safeParse(answers)),
+  (answers) => toValidationResult(contactSchema.safeParse(answers)),
+  (answers) => toValidationResult(projectSchema.safeParse(answers)),
+  (answers) => toValidationResult(packageSchema.safeParse(answers)),
+  (answers) => toValidationResult(filesSchema.safeParse(answers)),
+  (answers) => toValidationResult(permissionsSchema.safeParse(answers)),
 ];
 
 export {

@@ -70,12 +70,11 @@ export default function TermsAndConditionsPage() {
           <LegalSection number={1} title="About SpecSwap">
             <p>
               SpecSwap is a China-first construction procurement broker. We
-              identify, vet and negotiate with factories and suppliers in
-              China on behalf of Australian clients, and provide
-              information products, advisory sessions, and full-cycle
-              sourcing and management services for construction, fitout and
-              furniture, fixtures &amp; equipment (FF&amp;E) products sourced
-              internationally.
+              assess and shortlist factories and suppliers in China on
+              behalf of Australian clients, and provide free opportunity
+              reviews, paid package validation, and managed procurement
+              services for construction, fitout and furniture, fixtures
+              &amp; equipment (FF&amp;E) products sourced internationally.
             </p>
             <p>
               Our services may include reviewing furniture, fixtures,
@@ -117,10 +116,9 @@ export default function TermsAndConditionsPage() {
             <p>
               <strong className="text-navy-900">&ldquo;Services&rdquo;</strong>{" "}
               means any service provided by SpecSwap, including the
-              Construction Offshore Bible, the Free Discovery Call, the
-              Sourcing Strategy Session, Full-Cycle Sourcing &amp;
-              Management, specification review, product sourcing, factory
-              vetting and negotiation, quality control coordination, freight
+              Opportunity Review, Package Validation, Managed Procurement,
+              specification review, product sourcing, factory assessment
+              and negotiation, quality control coordination, freight
               coordination, delivery coordination, selected installation
               coordination and handover documentation.
             </p>
@@ -138,9 +136,10 @@ export default function TermsAndConditionsPage() {
               <strong className="text-navy-900">
                 &ldquo;Brokerage Fee&rdquo;
               </strong>{" "}
-              means the fee payable to SpecSwap under a Full-Cycle Sourcing
-              &amp; Management engagement, calculated as a percentage of
-              Landed Cost as set out in clause 3.4 and clause 12.
+              means the fee payable to SpecSwap under a Managed Procurement
+              engagement, calculated as a percentage of Landed Cost, subject
+              to a minimum project fee, as set out in clause 3.3 and clause
+              12.
             </p>
             <p>
               <strong className="text-navy-900">&ldquo;Products&rdquo;</strong>{" "}
@@ -188,54 +187,50 @@ export default function TermsAndConditionsPage() {
               types.
             </p>
 
-            <LegalSubHeading>3.1 Construction Offshore Bible</LegalSubHeading>
+            <LegalSubHeading>3.1 Opportunity Review</LegalSubHeading>
             <p>
-              The Construction Offshore Bible is a paid digital information
-              product sold for a one-off fee. It is general information only,
-              not advice tailored to your specific project, and does not
-              constitute an engagement of SpecSwap&apos;s advisory or
-              sourcing Services.
-            </p>
-
-            <LegalSubHeading>3.2 Free Discovery Call</LegalSubHeading>
-            <p>
-              The Free Discovery Call is a no-cost, no-obligation
-              conversation following review of any project information you
-              upload. It is provided to help you understand whether
+              The Opportunity Review is a no-cost, no-obligation assessment
+              following review of any project or package information you
+              submit. It is provided to help you understand whether
               China-direct sourcing may be worthwhile for your project and
               does not itself constitute a binding recommendation,
               valuation or Proposal.
             </p>
 
-            <LegalSubHeading>3.3 Sourcing Strategy Session</LegalSubHeading>
+            <LegalSubHeading>3.2 Package Validation</LegalSubHeading>
             <p>
-              The Sourcing Strategy Session is a paid advisory session in
-              which SpecSwap sets out a sourcing plan for your project,
-              including candidate categories, suppliers or factories to
-              approach, suggested package structuring and the practical
-              steps involved, whether you proceed independently or engage
-              SpecSwap further. The fee for a Sourcing Strategy Session will
-              be credited in full toward the Brokerage Fee if you engage
-              SpecSwap for Full-Cycle Sourcing &amp; Management on the same
+              Package Validation is a paid, fixed-fee engagement (quoted in
+              advance, from $750 plus GST depending on scope) in which
+              SpecSwap obtains factory quotations, coordinates like-for-like
+              comparisons and samples, and provides a landed-cost
+              recommendation for your package. The fee for Package
+              Validation will be credited in full toward the Brokerage Fee
+              if you engage SpecSwap for Managed Procurement on the same
               project within the period stated in your Proposal or, if none
-              is stated, within 6 months of the session.
+              is stated, within 6 months of the Package Validation being
+              completed.
             </p>
 
-            <LegalSubHeading>
-              3.4 Full-Cycle Sourcing &amp; Management
-            </LegalSubHeading>
+            <LegalSubHeading>3.3 Managed Procurement</LegalSubHeading>
             <p>
-              Under a Full-Cycle Sourcing &amp; Management engagement,
-              SpecSwap sources, negotiates with, and manages factories and
-              suppliers on your behalf, coordinates quality control and
-              pre-shipment inspection, coordinates freight, and manages
-              delivery to your site. SpecSwap charges a Brokerage Fee for
-              this Service, calculated as a percentage of Landed Cost as set
-              out in your Proposal (5% of Landed Cost unless a different
-              rate is expressly agreed in writing).
+              Under a Managed Procurement engagement, SpecSwap sources,
+              negotiates with, and manages factories and suppliers on your
+              behalf, coordinates quality control and pre-shipment
+              inspection, coordinates freight, and manages delivery to your
+              site. SpecSwap charges a Brokerage Fee for this Service,
+              calculated as a percentage of Landed Cost as set out in your
+              Proposal (5% of Landed Cost unless a different rate is
+              expressly agreed in writing), subject to a minimum project fee
+              of $4,500 plus GST.
+            </p>
+            <p>
+              You pay the Landed Cost directly to the relevant factory,
+              supplier or freight provider. SpecSwap does not collect, hold
+              or forward your product funds at any stage — see clause 12 for
+              how payment is structured.
             </p>
 
-            <LegalSubHeading>3.5 Custom service scope</LegalSubHeading>
+            <LegalSubHeading>3.4 Custom service scope</LegalSubHeading>
             <p>
               The exact scope of work will be set out in the relevant
               Proposal, quote, email, written agreement or approved scope.
@@ -453,7 +448,7 @@ export default function TermsAndConditionsPage() {
               items={[
                 "a written Proposal, quote or product schedule has been accepted",
                 "required approvals have been provided",
-                "any required deposit or payment has been received",
+                "any required deposit or payment has been made to the relevant factory, supplier or freight provider",
                 "all required information has been provided",
               ]}
             />
@@ -472,28 +467,42 @@ export default function TermsAndConditionsPage() {
           <LegalSection number={12} title="Payment terms">
             <p>
               Payment terms will be set out in the relevant Proposal, quote
-              or invoice.
+              or invoice. This clause distinguishes two separate flows of
+              money: (1) your product funds, paid directly to factories,
+              suppliers and freight providers, and (2) SpecSwap&apos;s own
+              fees, invoiced and paid to SpecSwap separately.
+            </p>
+
+            <LegalSubHeading>Product funds — paid directly, never held by SpecSwap</LegalSubHeading>
+            <p>
+              You pay the Landed Cost directly to the relevant factory,
+              supplier or freight provider — generally in stages: a deposit
+              on order confirmation, production checkpoint payments, and a
+              final balance payable only once independent pre-shipment
+              inspection has passed (or as otherwise set out in your
+              Proposal or the relevant supplier&apos;s terms). SpecSwap does
+              not collect, hold, forward or operate a trust account for your
+              product funds at any stage, regardless of engagement type.
             </p>
 
             <LegalSubHeading>Brokerage Fee</LegalSubHeading>
             <p>
-              For Full-Cycle Sourcing &amp; Management engagements, the
-              Brokerage Fee is calculated as a percentage of Landed Cost
-              (5% unless otherwise agreed in writing). The Brokerage Fee is
-              in addition to, not inclusive of, the Landed Cost itself,
-              which is generally payable to the relevant factory, supplier
-              or freight provider (whether directly by you or coordinated by
-              SpecSwap, as set out in your Proposal).
+              For Managed Procurement engagements, the Brokerage Fee is
+              calculated as a percentage of Landed Cost (5% unless
+              otherwise agreed in writing), subject to a minimum project
+              fee of $4,500 plus GST. The Brokerage Fee is invoiced and paid
+              to SpecSwap separately from the Landed Cost, and is payable
+              regardless of how or when you pay the factory, supplier or
+              freight provider.
             </p>
             <p>
-              Where you have paid for a Sourcing Strategy Session and
-              subsequently engage SpecSwap for Full-Cycle Sourcing &amp;
-              Management on the same project within the period described in
-              clause 3.3, the Sourcing Strategy Session fee will be credited
-              in full against the Brokerage Fee payable for that
-              engagement. This credit does not apply where the engagements
-              relate to different projects, or where the qualifying period
-              has lapsed.
+              Where you have paid for Package Validation and subsequently
+              engage SpecSwap for Managed Procurement on the same project
+              within the period described in clause 3.2, the Package
+              Validation fee will be credited in full against the Brokerage
+              Fee payable for that engagement. This credit does not apply
+              where the engagements relate to different projects, or where
+              the qualifying period has lapsed.
             </p>
             <p>
               SpecSwap will provide an itemised breakdown of Landed Cost
@@ -503,18 +512,18 @@ export default function TermsAndConditionsPage() {
             <p>Unless otherwise agreed in writing:</p>
             <LegalList
               items={[
-                "a deposit or full payment may be required before orders are placed",
-                "supplier orders may not proceed until cleared funds are received",
-                "invoices are payable by the due date stated on the invoice",
-                "late payments may delay orders, delivery or handover",
-                "overdue amounts may attract interest, debt recovery costs or suspension of Services",
-                "title to Products may not pass until full payment has been received",
+                "a deposit or full payment may be required by the factory, supplier or freight provider before orders are placed or production begins",
+                "supplier orders may not proceed until the supplier confirms receipt of cleared funds from you",
+                "SpecSwap's own invoices (Package Validation fees, the Brokerage Fee, or other agreed fees) are payable by the due date stated on the invoice",
+                "late payments — to a supplier or to SpecSwap — may delay orders, delivery or handover",
+                "overdue amounts owed to SpecSwap may attract interest, debt recovery costs or suspension of Services",
+                "title to Products passes as set out in the relevant factory or supplier's own terms once you have paid them in full",
               ]}
             />
             <p>
               SpecSwap may suspend or withhold Services, deliveries,
-              documents, warranties or handover packs while amounts remain
-              overdue, subject to applicable law.
+              documents, warranties or handover packs while amounts owed to
+              SpecSwap remain overdue, subject to applicable law.
             </p>
           </LegalSection>
 
@@ -718,9 +727,9 @@ export default function TermsAndConditionsPage() {
               ]}
             />
             <p>
-              SpecSwap will disclose relevant category-specific risks during
-              the Free Discovery Call or Sourcing Strategy Session, but
-              orders should only proceed after written approval and
+              SpecSwap will disclose relevant category-specific risks
+              during the Opportunity Review or Package Validation process,
+              but orders should only proceed after written approval and
               acceptance of the risks, pricing and lead times relevant to
               your project.
             </p>

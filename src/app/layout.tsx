@@ -3,6 +3,7 @@ import { Lexend, Work_Sans } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { TripBanner } from "@/components/layout/TripBanner";
 import { UploadFormRoot } from "@/components/form/UploadFormRoot";
 
 const workSans = Work_Sans({
@@ -19,9 +20,9 @@ const lexend = Lexend({
 
 const SITE_URL = "https://www.specswap.com.au";
 const SITE_TITLE =
-  "SpecSwap — China-Direct Construction Procurement Brokerage";
+  "SpecSwap — Factory-Direct Procurement for Australian Commercial Builders";
 const SITE_DESCRIPTION =
-  "SpecSwap connects Australian builders direct to vetted factories in China — sourcing, negotiating, QC and freight, managed for you, factory pricing without factory risk.";
+  "SpecSwap sources commercial fitout packages direct from Chinese factories for Australian builders — sourcing, samples, QC and freight, managed end-to-end. First package review free.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -54,6 +55,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col font-sans">
         <UploadFormRoot>
+          <TripBanner />
           <Header />
           {children}
           <Footer />

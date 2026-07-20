@@ -3,18 +3,18 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { IconBadge } from "@/components/ui/IconBadge";
 import { Badge } from "@/components/ui/Badge";
-import { WHAT_WE_SOURCE_GROUPS } from "@/lib/constants";
+import { WHAT_WE_SOURCE_GROUPS, WHAT_WE_SOURCE_CLOSING_LINE } from "@/lib/constants";
 
 const TIER_ICONS: Record<string, LucideIcon> = {
-  "Lighting, furniture & finishes": CheckCircle2,
-  "Cabinets, doors & stone": ShieldQuestion,
-  "Structural & certified items": AlertTriangle,
+  "Ready now — low compliance, strong value": CheckCircle2,
+  "Select projects — reviewed before we commit": ShieldQuestion,
+  "Not actively sold": AlertTriangle,
 };
 
 const TIER_TONES: Record<string, "coral" | "navy"> = {
-  "Lighting, furniture & finishes": "coral",
-  "Cabinets, doors & stone": "navy",
-  "Structural & certified items": "navy",
+  "Ready now — low compliance, strong value": "coral",
+  "Select projects — reviewed before we commit": "navy",
+  "Not actively sold": "navy",
 };
 
 export function WhatWeManage() {
@@ -66,6 +66,9 @@ export function WhatWeManage() {
             </div>
           ))}
         </div>
+        <p className="mt-8 text-center font-display text-lg font-bold text-navy-900">
+          {WHAT_WE_SOURCE_CLOSING_LINE}
+        </p>
       </Container>
     </section>
   );

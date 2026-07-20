@@ -3,12 +3,43 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Container } from "@/components/ui/Container";
 import { UploadCtaButton } from "@/components/ui/UploadCtaButton";
 import { NAV_LINKS } from "@/lib/constants";
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isChinaTrip = pathname === "/china-trip";
+
+  if (isChinaTrip) {
+    return (
+      <header className="border-b border-slate-200 bg-white">
+        <Container className="flex h-16 items-center justify-between">
+          <Link
+            href="/"
+            className="flex items-center gap-2 font-display text-xl font-bold text-navy-900"
+          >
+            <Image
+              src="/logo-icon.svg"
+              alt=""
+              width={32}
+              height={32}
+              className="h-8 w-8"
+              priority
+            />
+            <span>
+              Spec<span className="text-coral-500">Swap</span>
+            </span>
+          </Link>
+          <Link href="/" className="text-sm font-medium text-slate-600 hover:text-navy-900">
+            ← Back to site
+          </Link>
+        </Container>
+      </header>
+    );
+  }
 
   return (
     <>
@@ -40,19 +71,29 @@ export function Header() {
             aria-label="Primary"
             className="hidden items-center gap-6 lg:flex xl:gap-8"
           >
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-sm font-medium text-slate-600 hover:text-navy-900"
-              >
-                {link.label}
-              </a>
-            ))}
+            {NAV_LINKS.map((link) =>
+              link.accent ? (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="rounded-full bg-coral-50 px-3 py-1 text-sm font-semibold text-coral-600 hover:bg-coral-100"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm font-medium text-slate-600 hover:text-navy-900"
+                >
+                  {link.label}
+                </a>
+              ),
+            )}
           </nav>
           <div className="flex items-center gap-2">
             <UploadCtaButton className="hidden px-4 py-2 text-sm sm:inline-flex">
-              Start a project
+              Submit a package
             </UploadCtaButton>
             <button
               type="button"
@@ -101,13 +142,17 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="text-sm font-medium text-slate-600 hover:text-navy-900"
+                  className={
+                    link.accent
+                      ? "w-fit rounded-full bg-coral-50 px-3 py-1 text-sm font-semibold text-coral-600"
+                      : "text-sm font-medium text-slate-600 hover:text-navy-900"
+                  }
                 >
                   {link.label}
                 </a>
               ))}
               <UploadCtaButton className="w-full justify-center px-4 py-2 text-sm sm:hidden">
-                Start a project
+                Submit a package
               </UploadCtaButton>
             </Container>
           </nav>

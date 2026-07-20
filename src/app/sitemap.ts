@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 const SITE_URL = "https://www.specswap.com.au";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/contact", "/privacy", "/terms"];
+  const routes = ["", "/china-trip", "/contact", "/privacy", "/terms"];
 
   return routes.map((route) => ({
     url: `${SITE_URL}${route}`,

@@ -31,7 +31,7 @@ export default function Image() {
             maxWidth: 900,
           }}
         >
-          We go to the factory floor, so you don&apos;t have to.
+          Factory-direct pricing for commercial fitouts. Managed end-to-end.
         </div>
         <div
           style={{
@@ -44,7 +44,7 @@ export default function Image() {
             letterSpacing: 2,
           }}
         >
-          China-direct construction procurement
+          Factory-direct procurement for Australian builders
         </div>
       </div>
     ),

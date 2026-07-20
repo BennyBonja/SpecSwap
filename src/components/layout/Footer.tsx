@@ -1,13 +1,35 @@
+"use client";
+
 import { Phone, Mail } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { Container } from "@/components/ui/Container";
 import {
   NAV_LINKS,
   CONTACT_PHONE_DISPLAY,
   CONTACT_PHONE_TEL,
   CONTACT_EMAIL,
+  FOOTER_DESCRIPTION,
+  BUILDERS_GUIDE_TITLE,
 } from "@/lib/constants";
 
+function MinimalFooter() {
+  return (
+    <footer className="border-t border-slate-200 bg-slate-50 py-10 text-slate-500">
+      <Container className="flex flex-col items-center gap-2 text-center text-xs">
+        <p>Commercial information treated confidentially. Anonymised before any factory discussion.</p>
+        <p>SpecSwap is a service owned and operated by Bonja Group, ABN 64 814 797 294.</p>
+        <p>
+          {CONTACT_PHONE_DISPLAY} · {CONTACT_EMAIL}
+        </p>
+      </Container>
+    </footer>
+  );
+}
+
 export function Footer() {
+  const pathname = usePathname();
+  if (pathname === "/china-trip") return <MinimalFooter />;
+
   return (
     <footer className="bg-navy-900 py-12 text-navy-200">
       <Container className="flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
@@ -16,9 +38,7 @@ export function Footer() {
             Spec<span className="text-coral-500">Swap</span>
           </p>
           <p className="mt-2 max-w-sm text-sm leading-relaxed">
-            A China-first construction procurement broker — we connect
-            Australian builders direct to vetted factories, then manage
-            sourcing, QC and freight from factory to site.
+            {FOOTER_DESCRIPTION}
           </p>
           <div className="mt-4 flex flex-col gap-2 text-sm">
             <a
@@ -37,17 +57,25 @@ export function Footer() {
             </a>
           </div>
         </div>
-        <nav aria-label="Footer" className="flex flex-wrap gap-x-6 gap-y-2">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm hover:text-white"
-            >
-              {link.label}
+        <div className="flex flex-col gap-6 sm:items-end">
+          <nav aria-label="Footer" className="flex flex-wrap gap-x-6 gap-y-2">
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-sm hover:text-white"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-navy-400">Resources</p>
+            <a href="/china-trip" className="mt-1 block text-sm hover:text-white">
+              {BUILDERS_GUIDE_TITLE}
             </a>
-          ))}
-        </nav>
+          </div>
+        </div>
       </Container>
       <Container className="mt-8 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs sm:flex-row sm:items-center sm:justify-between">
         <div className="space-y-1">

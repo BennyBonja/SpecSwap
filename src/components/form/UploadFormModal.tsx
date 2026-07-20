@@ -4,24 +4,18 @@ import { useEffect, useRef } from "react";
 import { useUploadForm } from "@/components/form/UploadFormProvider";
 import { StepShell } from "@/components/form/StepShell";
 import { ConfirmationScreen } from "@/components/form/ConfirmationScreen";
-import { Step1ProjectInfo } from "@/components/form/steps/Step1ProjectInfo";
-import { Step2SwapType } from "@/components/form/steps/Step2SwapType";
-import { Step3ProjectType } from "@/components/form/steps/Step3ProjectType";
-import { Step4Intent } from "@/components/form/steps/Step4Intent";
-import { Step5LeadTime } from "@/components/form/steps/Step5LeadTime";
-import { Step6BudgetNotes } from "@/components/form/steps/Step6BudgetNotes";
-import { Step7FileUpload } from "@/components/form/steps/Step7FileUpload";
-import { Step8Contact } from "@/components/form/steps/Step8Contact";
+import { Step1Contact } from "@/components/form/steps/Step1Contact";
+import { Step2Project } from "@/components/form/steps/Step2Project";
+import { Step3Package } from "@/components/form/steps/Step3Package";
+import { Step4Files } from "@/components/form/steps/Step4Files";
+import { Step5Permissions } from "@/components/form/steps/Step5Permissions";
 
 const STEP_COMPONENTS = [
-  Step1ProjectInfo,
-  Step2SwapType,
-  Step3ProjectType,
-  Step4Intent,
-  Step5LeadTime,
-  Step6BudgetNotes,
-  Step7FileUpload,
-  Step8Contact,
+  Step1Contact,
+  Step2Project,
+  Step3Package,
+  Step4Files,
+  Step5Permissions,
 ];
 
 function hasAnyAnswer(answers: Record<string, unknown>): boolean {

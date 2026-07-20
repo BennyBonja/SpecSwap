@@ -7,11 +7,11 @@ import {
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { TRUST_POINTS, CREDIBILITY_BLURB } from "@/lib/constants";
+import { TRUST_POINTS } from "@/lib/constants";
 
 const POINT_ICONS: Record<string, LucideIcon> = {
-  "Factory vetting & QC": ShieldCheck,
-  "Payment & fund security": Lock,
+  "Factory assessment & QC": ShieldCheck,
+  "Staged-payment protection": Lock,
   "Compliance discipline": ListChecks,
   "Warranties & after-sales": FileCheck2,
 };
@@ -25,7 +25,7 @@ export function TeamCredibility() {
           eyebrow="Trust & process"
           title="Built by people who go and check, not just promise"
         />
-        <div className="mx-auto mt-10 grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto mt-10 grid max-w-3xl grid-cols-1 gap-4 sm:grid-cols-2">
           {TRUST_POINTS.map((point) => {
             const Icon = POINT_ICONS[point.title] ?? ShieldCheck;
             return (
@@ -45,14 +45,6 @@ export function TeamCredibility() {
               </div>
             );
           })}
-        </div>
-        <div className="mx-auto mt-8 max-w-3xl rounded-2xl bg-white p-8 text-center shadow-sm">
-          <p className="text-xs font-semibold uppercase tracking-wider text-coral-600">
-            Our mission
-          </p>
-          <p className="mt-3 text-base leading-relaxed text-slate-600">
-            {CREDIBILITY_BLURB}
-          </p>
         </div>
       </Container>
     </section>

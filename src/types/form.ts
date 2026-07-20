@@ -1,49 +1,60 @@
 export type FormAnswers = {
-  companyName: string;
-  projectName: string;
-  projectAddress: string;
-  swapType: string;
-  swapTypeOther: string;
-  projectType: string;
-  projectTypeOther: string;
-  intent: string;
-  intentOther: string;
-  leadTime: string;
-  budget: string;
-  notes: string;
-  files: File[];
+  // Step 1 — Contact
   firstName: string;
   lastName: string;
+  companyName: string;
+  role: string;
   email: string;
   phone: string;
-  termsAccepted: boolean;
+  // Step 2 — Project
+  projectName: string;
+  projectLocation: string;
+  projectType: string;
+  projectTypeOther: string;
+  projectValueBand: string;
+  requiredOnSiteDate: string;
+  // Step 3 — Package
+  packageDescription: string;
+  packageQuantity: string;
+  currentLocalQuote: string;
+  specFixed: string;
+  priorities: string[];
+  // Step 4 — Files
+  files: File[];
+  // Step 5 — Permissions
+  factoryDiscussionConsent: boolean;
+  clarificationContactConsent: boolean;
   uploadAuthorised: boolean;
   supplierSharingAcknowledged: boolean;
   substitutionApprovalAcknowledged: boolean;
+  termsAccepted: boolean;
 };
 
 export const INITIAL_ANSWERS: FormAnswers = {
-  companyName: "",
-  projectName: "",
-  projectAddress: "",
-  swapType: "",
-  swapTypeOther: "",
-  projectType: "",
-  projectTypeOther: "",
-  intent: "",
-  intentOther: "",
-  leadTime: "",
-  budget: "",
-  notes: "",
-  files: [],
   firstName: "",
   lastName: "",
+  companyName: "",
+  role: "",
   email: "",
   phone: "",
-  termsAccepted: false,
+  projectName: "",
+  projectLocation: "",
+  projectType: "",
+  projectTypeOther: "",
+  projectValueBand: "",
+  requiredOnSiteDate: "",
+  packageDescription: "",
+  packageQuantity: "",
+  currentLocalQuote: "",
+  specFixed: "",
+  priorities: [],
+  files: [],
+  factoryDiscussionConsent: false,
+  clarificationContactConsent: false,
   uploadAuthorised: false,
   supplierSharingAcknowledged: false,
   substitutionApprovalAcknowledged: false,
+  termsAccepted: false,
 };
 
 export type SubmitStatus = "idle" | "submitting" | "success" | "error";

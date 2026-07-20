@@ -13,7 +13,7 @@ function formatBytes(bytes: number): string {
   return `${(bytes / (1024 * 1024)).toFixed(1)}MB`;
 }
 
-export function Step7FileUpload() {
+export function Step4Files() {
   const { state, setAnswers } = useUploadForm();
   const [isDragging, setIsDragging] = useState(false);
   const [localError, setLocalError] = useState<string | null>(null);
@@ -72,9 +72,8 @@ export function Step7FileUpload() {
           </button>
         </p>
         <p className="mt-1 text-xs text-slate-500">
-          Drawings, spec sheets, BIM models, spreadsheets, images and more.
-          Up to {MAX_FILE_COUNT} files, {formatBytes(MAX_TOTAL_SIZE_BYTES)}{" "}
-          total.
+          Drawings, schedules, BOQs, quotes, images and product links. Up to{" "}
+          {MAX_FILE_COUNT} files, {formatBytes(MAX_TOTAL_SIZE_BYTES)} total.
         </p>
         <input
           ref={inputRef}
@@ -121,7 +120,7 @@ export function Step7FileUpload() {
       <p className="mt-3 text-xs text-slate-500">
         Your documents are treated as confidential project information and
         only shared where reasonably required to review, quote, source or
-        manage your FF&E package.
+        manage your package.
       </p>
     </div>
   );

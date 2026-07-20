@@ -1,4 +1,4 @@
-import { Upload, Search, PhoneCall, Ship, CheckCircle2 } from "lucide-react";
+import { Upload, PhoneCall, Ship, CheckCircle2 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { HOW_IT_WORKS_STEPS } from "@/lib/constants";
@@ -14,19 +14,6 @@ function UploadMockup() {
         <span className="rounded bg-slate-100 px-2 py-1 text-xs font-medium text-slate-500">
           schedule.xlsx
         </span>
-      </div>
-    </div>
-  );
-}
-
-function ReviewMockup() {
-  return (
-    <div className="flex h-24 w-full items-center gap-4 rounded-2xl border border-slate-200 bg-white px-5">
-      <Search className="h-7 w-7 shrink-0 text-coral-500" aria-hidden="true" />
-      <div className="w-full space-y-2">
-        <div className="h-2 w-4/5 rounded-full bg-slate-200" />
-        <div className="h-2 w-3/5 rounded-full bg-slate-200" />
-        <div className="h-2 w-2/3 rounded-full bg-coral-200" />
       </div>
     </div>
   );
@@ -62,8 +49,8 @@ function ManageMockup() {
   );
 }
 
-const STEP_MOCKUPS = [UploadMockup, ReviewMockup, CallMockup, ManageMockup];
-const STEP_ICONS = [Upload, Search, PhoneCall, Ship];
+const STEP_MOCKUPS = [UploadMockup, CallMockup, ManageMockup];
+const STEP_ICONS = [Upload, PhoneCall, Ship];
 
 export function HowItWorks() {
   return (
@@ -71,10 +58,10 @@ export function HowItWorks() {
       <Container>
         <SectionHeading
           eyebrow="How it works"
-          title="From upload to delivery, one process"
+          title="From submission to delivery, one process"
           align="center"
         />
-        <ol className="no-scrollbar -mx-6 mt-12 flex snap-x snap-mandatory gap-8 overflow-x-auto px-6 pb-2 scroll-pl-6 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 sm:scroll-pl-0 lg:grid-cols-4">
+        <ol className="no-scrollbar -mx-6 mt-12 flex snap-x snap-mandatory gap-8 overflow-x-auto px-6 pb-2 scroll-pl-6 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 sm:scroll-pl-0 lg:grid-cols-3">
           {HOW_IT_WORKS_STEPS.map((step, index) => {
             const Mockup = STEP_MOCKUPS[index]!;
             const Icon = STEP_ICONS[index]!;

@@ -42,12 +42,17 @@ export function ConfirmationScreen({ onRetry }: { onRetry: () => void }) {
         <Check className="h-6 w-6" strokeWidth={2.5} />
       </span>
       <h2 className="mt-4 font-display text-2xl font-bold text-navy-900">
-        We&apos;ve received your documents
+        Package received.
       </h2>
       <p className="mt-3 text-slate-600">
-        Our team is reviewing now — most initial reviews are returned
-        within {TURNAROUND_CLAIM}, depending on schedule size and
-        complexity.
+        We&apos;ll review it and come back within {TURNAROUND_CLAIM} with an
+        honest read.
+      </p>
+      <p className="mt-4 text-sm text-slate-600">
+        Want it inspected in China?{" "}
+        <a href="/china-trip" className="font-semibold text-coral-600 hover:underline">
+          Claim a slot →
+        </a>
       </p>
       <button
         type="button"
